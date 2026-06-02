@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>现实 VS 游戏：V4.0 剧情整合版</title>
+  <title>现实 VS 游戏：V4.4 角色视觉优化版</title>
   <style>
     :root{
       --ink:#243246;--muted:#6d7786;--card:rgba(255,255,255,.78);
@@ -15,35 +15,35 @@
     body.sync-mid .frame::after{opacity:.20}body.sync-high .frame::after{opacity:.34}body.sync-critical .frame::after{opacity:.50;animation:pulseSync 1.4s ease-in-out infinite}
     @keyframes pulseSync{0%,100%{filter:none}50%{filter:contrast(1.12) saturate(1.18)}}
     body.sync-mid .titleCard,body.sync-mid .statCard{border-color:rgba(200,105,70,.22)}body.sync-high .titleCard,body.sync-high .statCard{border-color:rgba(210,70,70,.35);box-shadow:0 8px 24px rgba(160,55,45,.12)}body.sync-critical .titleCard,body.sync-critical .statCard{border-color:rgba(210,45,65,.50);box-shadow:0 8px 28px rgba(190,45,60,.20)}
-    .hud{position:absolute;left:22px;right:22px;top:18px;z-index:70;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;pointer-events:none}.titleCard,.statCard,.controlCard,.regionPill,.toast{background:var(--card);border:1px solid rgba(110,100,85,.12);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(60,50,35,.08);border-radius:22px}.titleCard{padding:14px 18px;min-width:350px}.titleCard h1{margin:0;font-size:20px;letter-spacing:.02em}.titleCard p{margin:5px 0 0;color:var(--muted);font-size:12px}.stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.statCard{padding:10px 13px;min-width:112px}.statCard .label{font-size:11px;color:var(--muted);margin-bottom:4px}.statCard .value{font-weight:850;font-size:18px}.bar{height:6px;margin-top:8px;border-radius:999px;background:rgba(50,50,50,.10);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px}#batteryBar{width:30%;background:linear-gradient(90deg,#55c47e,#8de0a4)}#syncBar{width:0%;background:linear-gradient(90deg,#eda44e,#e15d5d)}
+    .hud{position:absolute;left:22px;right:22px;top:18px;z-index:70;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;pointer-events:none}.titleCard,.statCard,.controlCard,.regionPill,.toast{background:var(--card);border:1px solid rgba(110,100,85,.12);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(60,50,35,.08);border-radius:22px}.titleCard{padding:14px 18px;min-width:350px}.titleCard h1{margin:0;font-size:20px;letter-spacing:.02em}.titleCard p{margin:5px 0 0;color:var(--muted);font-size:12px}.stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.statCard{padding:10px 13px;min-width:112px}.statCard .label{font-size:11px;color:var(--muted);margin-bottom:4px}.statCard .value{font-weight:850;font-size:18px}.bar{height:6px;margin-top:8px;border-radius:999px;background:rgba(50,50,50,.10);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px}#batteryBar{width:35%;background:linear-gradient(90deg,#55c47e,#8de0a4)}#syncBar{width:0%;background:linear-gradient(90deg,#eda44e,#e15d5d)}
     .controlCard{position:absolute;right:22px;top:106px;z-index:75;display:flex;gap:8px;padding:10px;pointer-events:auto}button{border:0;border-radius:999px;padding:9px 14px;background:rgba(255,255,255,.84);border:1px solid rgba(110,100,85,.12);cursor:pointer;color:#263246;font-weight:750;font-family:inherit;transition:.15s ease}button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(60,50,35,.10);background:white}button.danger{background:#d95d64;color:white}button.good{background:#2d9b71;color:white}button.ghost{background:rgba(255,255,255,.55)}
-    .mapShell{position:absolute;inset:105px 22px 78px 22px;border-radius:26px;overflow:hidden;background:rgba(255,255,255,.38);border:1px solid rgba(110,100,85,.10);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}#mapViewport{position:absolute;inset:0;display:grid;place-items:center}#map{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 16px 42px rgba(65,56,40,.13);transition:opacity .18s ease,transform .18s ease;background:#e7f0e5}#map.fade{opacity:0;transform:scale(.985)}.bgSvg{position:absolute;inset:0;width:100%;height:100%;z-index:1}.debugGrid{position:absolute;inset:0;z-index:3;opacity:.07;pointer-events:none;background-image:linear-gradient(rgba(80,90,100,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(80,90,100,.18) 1px,transparent 1px);background-size:var(--tile-size) var(--tile-size),var(--tile-size) var(--tile-size)}
-    .entity{position:absolute;width:22px;height:22px;z-index:45}.entity .head{position:absolute;width:10px;height:10px;left:6px;top:0;border-radius:50%;background:currentColor;box-shadow:0 2px 4px rgba(0,0,0,.18)}.entity .body{position:absolute;width:16px;height:12px;left:3px;bottom:0;border-radius:8px 8px 5px 5px;background:currentColor;box-shadow:0 2px 6px rgba(0,0,0,.18)}#player{color:var(--player);filter:drop-shadow(0 0 8px rgba(45,127,229,.35))}#roommate{color:var(--roommate);filter:drop-shadow(0 0 8px rgba(139,98,221,.35))}#guard{color:var(--guard);filter:drop-shadow(0 0 8px rgba(220,97,83,.35))}
+    .mapShell{position:absolute;inset:105px 22px 78px 360px;border-radius:26px;overflow:hidden;background:rgba(255,255,255,.38);border:1px solid rgba(110,100,85,.10);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}#mapViewport{position:absolute;inset:0;display:grid;place-items:center}#map{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 16px 42px rgba(65,56,40,.13);transition:opacity .18s ease,transform .18s ease;background:#e7f0e5}#map.fade{opacity:0;transform:scale(.985)}.bgSvg{position:absolute;inset:0;width:100%;height:100%;z-index:1}.debugGrid{position:absolute;inset:0;z-index:3;opacity:.07;pointer-events:none;background-image:linear-gradient(rgba(80,90,100,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(80,90,100,.18) 1px,transparent 1px);background-size:var(--tile-size) var(--tile-size),var(--tile-size) var(--tile-size)}
+    .entity{position:absolute;width:26px;height:30px;z-index:45;color:var(--player);--torso:#5f7fba;--legs:#4a5568;--skin:#f0c28b;--outline:rgba(35,40,50,.55);filter:drop-shadow(0 0 8px rgba(45,127,229,.26))}.entity .shadow{position:absolute;left:4px;bottom:0;width:18px;height:6px;border-radius:50%;background:rgba(35,35,35,.20);z-index:0}.entity .body{position:absolute;width:16px;height:13px;left:5px;top:11px;border-radius:5px 5px 4px 4px;background:var(--torso);border:1px solid var(--outline);box-shadow:inset 0 2px 0 rgba(255,255,255,.18);z-index:3}.entity .head{position:absolute;width:12px;height:12px;left:7px;top:1px;border-radius:5px;background:var(--skin);border:1px solid var(--outline);box-shadow:inset 2px 2px 0 rgba(255,255,255,.22);z-index:5}.entity .head::after{content:"";position:absolute;right:2px;top:2px;width:2px;height:2px;border-radius:50%;background:rgba(255,255,255,.58)}.entity .arm{position:absolute;top:13px;width:5px;height:11px;border-radius:4px;background:var(--torso);border:1px solid var(--outline);z-index:2}.entity .arm.left{left:1px;transform:rotate(10deg)}.entity .arm.right{right:1px;transform:rotate(-10deg)}.entity .hand{position:absolute;bottom:-3px;left:1px;width:4px;height:4px;border-radius:50%;background:var(--skin);border:1px solid rgba(35,40,50,.35)}.entity .leg{position:absolute;top:22px;width:7px;height:7px;border-radius:3px 3px 5px 5px;background:var(--legs);border:1px solid var(--outline);z-index:2}.entity .leg.left{left:6px}.entity .leg.right{right:6px}.entity .laptop,.entity .flashlight,.entity .hat,.entity .beam{display:none}.entity .laptop{position:absolute;right:-1px;top:12px;width:8px;height:7px;border-radius:2px;background:#d7dde5;border:1px solid #5f6b78;z-index:7;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}.entity .laptop::after{content:"";position:absolute;left:2px;top:2px;width:4px;height:2px;background:#64748b;border-radius:1px}.entity .hat{position:absolute;left:6px;top:-1px;width:14px;height:5px;border-radius:4px 4px 2px 2px;background:#293548;border:1px solid rgba(20,25,32,.55);z-index:6}.entity .flashlight{position:absolute;right:-2px;top:15px;width:9px;height:4px;border-radius:3px;background:#f1c84b;border:1px solid #8a6c17;z-index:8;transform:rotate(-8deg)}.entity .flashlight::after{content:"";position:absolute;right:-3px;top:1px;width:3px;height:2px;border-radius:2px;background:#fff2a6}.entity .beam{position:absolute;right:-29px;top:8px;width:34px;height:24px;background:linear-gradient(90deg,rgba(255,226,128,.42),rgba(255,226,128,0));clip-path:polygon(0 40%,100% 0,100% 100%,0 60%);z-index:1;pointer-events:none}#player{--torso:#577fb8;--legs:#374151;filter:drop-shadow(0 0 8px rgba(45,127,229,.30))}#player .laptop{display:block}#roommate{--torso:#9363df;--legs:#5b4b78;filter:drop-shadow(0 0 8px rgba(139,98,221,.30))}#guard{--torso:#324052;--legs:#1f2937;filter:drop-shadow(0 0 8px rgba(220,97,83,.30))}#guard .hat,#guard .flashlight{display:block}#guard.guard-mode-alert .beam,#guard.guard-mode-chase .beam,#guard.guard-mode-search .beam{display:block}#guard.guard-mode-chase .beam{opacity:.95;filter:brightness(1.06)}
     .poi{position:absolute;z-index:26;width:16px;height:16px;border-radius:50%;box-shadow:0 0 12px rgba(255,255,255,.35);display:grid;place-items:center;font-size:15px;line-height:1}.poi.exit{background:#fff;border:2px solid #7fb18a}.poi.socket{background:rgba(255,246,170,.92);border:1px solid #d7bd4d;width:22px;height:22px;border-radius:8px;box-shadow:0 0 14px rgba(255,218,80,.52)}.poi.source{background:#e5656b;border:1px solid #b34348;color:#fff}.poi.upload{background:#59c3a8;border:1px solid #2f8d78;color:#fff}.poi.clue{background:#b48df0;border:1px solid #7a52bd}.miniLabel{position:absolute;z-index:28;padding:3px 7px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid rgba(110,100,85,.10);font-size:11px;font-weight:700;color:rgba(55,60,68,.82);backdrop-filter:blur(8px);white-space:nowrap;pointer-events:none}
-    .bubble{position:absolute;z-index:70;min-width:240px;max-width:440px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.90);border:1px solid rgba(110,100,85,.14);box-shadow:0 10px 28px rgba(60,50,35,.14);line-height:1.55;font-size:13px;pointer-events:none;backdrop-filter:blur(10px)}.bubble:after{content:"";position:absolute;left:18px;bottom:-7px;border-width:7px 7px 0 7px;border-style:solid;border-color:rgba(255,255,255,.90) transparent transparent transparent}.regionPill{position:absolute;left:22px;bottom:18px;z-index:73;padding:10px 15px;font-weight:800}.toast{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:74;min-width:420px;max-width:780px;padding:12px 18px;text-align:center;line-height:1.55}.legend{position:absolute;right:22px;bottom:18px;z-index:75;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;max-width:420px}.tag{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(110,100,85,.10);font-size:11px;color:rgba(60,60,60,.76)}
-    .modalShade{position:absolute;inset:0;z-index:100;display:grid;place-items:center;background:rgba(57,52,43,.26);backdrop-filter:blur(8px)}.modal{width:min(780px,86vw);max-height:86vh;overflow:auto;padding:28px;border-radius:28px;background:rgba(255,255,255,.95);border:1px solid rgba(110,100,85,.14);box-shadow:0 30px 90px rgba(60,50,35,.24)}.modal h2{margin:0 0 10px;font-size:26px}.modal p{line-height:1.75;color:#384456;margin:10px 0}.modal .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}.modal code,.fileBox{font-family:Consolas,Menlo,monospace}.fileBox{background:#f5f2ea;border:1px solid rgba(90,80,60,.15);border-radius:16px;padding:14px;line-height:1.65;white-space:pre-wrap;color:#334155}.dialogue{display:grid;gap:10px}.line{padding:10px 13px;border-radius:16px;line-height:1.65}.line.npc{background:#f0ebff}.line.player{background:#edf6ff}.line.system{background:#fff0f0}.line b{display:block;margin-bottom:3px}
-    .predictionBox{position:absolute;left:22px;top:18px;z-index:55;width:390px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.84);border:1px solid rgba(160,80,80,.18);box-shadow:0 10px 28px rgba(80,45,35,.12);backdrop-filter:blur(12px);line-height:1.5}.predictionBox b{display:block;font-size:13px;color:#b4484e;margin-bottom:3px}.predictionBox span{font-size:13px;color:#334155}.predictionBox.danger{background:rgba(255,245,245,.90);border-color:rgba(210,70,70,.35);box-shadow:0 0 22px rgba(210,70,70,.12)}
-    .appPanel{position:absolute;right:22px;top:160px;width:390px;max-height:540px;z-index:90;background:rgba(255,255,255,.92);border:1px solid rgba(110,100,85,.16);box-shadow:0 18px 55px rgba(50,45,35,.20);border-radius:26px;backdrop-filter:blur(14px);padding:18px;display:none}.appPanel.show{display:block}.appPanel h2{font-size:20px;margin:0 0 8px}.appPanel .sub{font-size:12px;color:var(--muted);margin-bottom:12px}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.tabs button{padding:6px 10px;font-size:12px}.roomList{display:grid;gap:8px;max-height:330px;overflow:auto;padding-right:3px}.roomItem{padding:10px 12px;border-radius:16px;background:rgba(245,242,236,.82);border:1px solid rgba(110,100,85,.10);line-height:1.5}.roomItem b{display:block;margin-bottom:3px}.roomItem .free{color:#2a8a55;font-weight:800}.roomItem .used{color:#8d5592;font-weight:800}.roomItem .risk{color:#c56734;font-weight:800}.predictLog{margin-top:12px;padding-top:10px;border-top:1px solid rgba(110,100,85,.13);font-size:12px;color:#5b6471}.predictLog div{margin-top:5px}.appActions{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
-    @media(max-width:900px){.titleCard{min-width:250px}.toast{min-width:auto;width:60vw}.legend{display:none}.appPanel{width:330px;right:12px}.predictionBox{width:320px}}
+    .bubble{position:absolute;z-index:70;min-width:220px;max-width:420px;padding:9px 12px;border-radius:16px;background:rgba(255,255,255,.90);border:1px solid rgba(110,100,85,.14);box-shadow:0 10px 28px rgba(60,50,35,.14);line-height:1.45;font-size:13px;pointer-events:none;backdrop-filter:blur(10px);display:none}.bubble:after{content:"";position:absolute;left:18px;bottom:-7px;border-width:7px 7px 0 7px;border-style:solid;border-color:rgba(255,255,255,.90) transparent transparent transparent}.guardBubble{background:rgba(255,245,245,.94);border-color:rgba(210,90,90,.24);color:#6d2d32;max-width:360px}.guardBubble:after{border-color:rgba(255,245,245,.94) transparent transparent transparent}.regionPill{position:absolute;left:22px;bottom:18px;z-index:73;padding:10px 15px;font-weight:800}.toast{position:absolute;left:210px;bottom:18px;transform:none;z-index:74;min-width:280px;max-width:520px;padding:10px 14px;text-align:left;line-height:1.4;font-size:12px}.legend{position:absolute;right:22px;bottom:18px;z-index:75;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;max-width:420px}.tag{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(110,100,85,.10);font-size:11px;color:rgba(60,60,60,.76)}
+    .modalShade{position:absolute;inset:0;z-index:100;display:grid;place-items:center;background:rgba(57,52,43,.26);backdrop-filter:blur(8px)}.modal{width:min(880px,88vw);max-height:90vh;overflow:auto;padding:20px 22px;border-radius:24px;background:rgba(255,255,255,.95);border:1px solid rgba(110,100,85,.14);box-shadow:0 30px 90px rgba(60,50,35,.24);font-size:14px}.modal h2{margin:0 0 8px;font-size:21px}.modal p{line-height:1.48;color:#384456;margin:6px 0}.modal .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}.modal code,.fileBox{font-family:Consolas,Menlo,monospace}.fileBox{background:#f5f2ea;border:1px solid rgba(90,80,60,.15);border-radius:14px;padding:10px;line-height:1.42;white-space:pre-wrap;color:#334155;font-size:13px}.dialogue{display:flex;flex-direction:column;gap:10px;padding:4px 0}.line{position:relative;max-width:78%;padding:10px 12px;border-radius:18px;line-height:1.45;font-size:13px;box-shadow:0 6px 16px rgba(60,50,35,.06)}.line.npc{align-self:flex-start;background:#f0ebff;border-bottom-left-radius:8px}.line.player{align-self:flex-end;background:#edf6ff;border-bottom-right-radius:8px}.line.system{align-self:center;max-width:100%;width:100%;background:#fff0f0;border-radius:16px;border:1px solid rgba(210,90,90,.12)}.line.npc::after,.line.player::after{content:"";position:absolute;bottom:0;width:12px;height:12px;background:inherit}.line.npc::after{left:-4px;clip-path:polygon(100% 0,100% 100%,0 100%)}.line.player::after{right:-4px;clip-path:polygon(0 0,100% 100%,0 100%)}.line b{display:block;margin-bottom:3px;font-size:12px;color:#4b5563}
+    .predictionBox{position:absolute;left:22px;top:106px;z-index:55;width:390px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.84);border:1px solid rgba(160,80,80,.18);box-shadow:0 10px 28px rgba(80,45,35,.12);backdrop-filter:blur(12px);line-height:1.5}.predictionBox b{display:block;font-size:13px;color:#b4484e;margin-bottom:3px}.predictionBox span{font-size:13px;color:#334155}.predictionBox.danger{background:rgba(255,245,245,.90);border-color:rgba(210,70,70,.35);box-shadow:0 0 22px rgba(210,70,70,.12)}
+    .appPanel{position:absolute;right:22px;top:160px;width:390px;max-height:540px;z-index:90;background:rgba(255,255,255,.92);border:1px solid rgba(110,100,85,.16);box-shadow:0 18px 55px rgba(50,45,35,.20);border-radius:26px;backdrop-filter:blur(14px);padding:18px;display:none}.appPanel.show{display:block}.frame.chacha-open .mapShell{right:430px}.appPanel h2{font-size:20px;margin:0 0 8px}.appPanel .sub{font-size:12px;color:var(--muted);margin-bottom:12px}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.tabs button{padding:6px 10px;font-size:12px}.roomList{display:grid;gap:8px;max-height:330px;overflow:auto;padding-right:3px}.roomItem{padding:10px 12px;border-radius:16px;background:rgba(245,242,236,.82);border:1px solid rgba(110,100,85,.10);line-height:1.5}.roomItem b{display:block;margin-bottom:3px}.roomItem .free{color:#2a8a55;font-weight:800}.roomItem .used{color:#8d5592;font-weight:800}.roomItem .risk{color:#c56734;font-weight:800}.predictLog{margin-top:12px;padding-top:10px;border-top:1px solid rgba(110,100,85,.13);font-size:12px;color:#5b6471}.predictLog div{margin-top:5px}.appActions{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+    @media(max-width:900px){.titleCard{min-width:250px}.toast{left:12px;right:12px;bottom:64px;min-width:auto;width:auto;max-width:none}.legend{display:none}.appPanel{width:330px;right:12px}.predictionBox{width:300px}.mapShell{left:330px}.frame.chacha-open .mapShell{right:360px}}
   </style>
 </head>
 <body>
 <div id="app"><div class="frame">
-  <div class="hud"><div class="titleCard"><h1>现实 VS 游戏：V4.1</h1><p>完整分支 / 三线索 / 四结局</p></div><div class="stats"><div class="statCard"><div class="label">倒计时</div><div class="value" id="timeValue">01:00:00</div></div><div class="statCard"><div class="label">电脑电量</div><div class="value" id="batteryValue">30%</div><div class="bar"><span id="batteryBar"></span></div></div><div class="statCard"><div class="label">同步率</div><div class="value" id="syncValue">0%</div><div class="bar"><span id="syncBar"></span></div></div></div></div>
+  <div class="hud"><div class="titleCard"><h1>现实 VS 游戏：V4.4</h1><p>乐高小人 / 巡查员 / 反预测机制</p></div><div class="stats"><div class="statCard"><div class="label">倒计时</div><div class="value" id="timeValue">01:00:00</div></div><div class="statCard"><div class="label">电脑电量</div><div class="value" id="batteryValue">35%</div><div class="bar"><span id="batteryBar"></span></div></div><div class="statCard"><div class="label">同步率</div><div class="value" id="syncValue">0%</div><div class="bar"><span id="syncBar"></span></div></div></div></div>
   <div class="controlCard"><button onclick="toggleChacha()">智慧查查</button><button onclick="showHelp()">说明</button><button onclick="resetGame()">重置</button></div>
   <div class="appPanel" id="chachaPanel"><h2>智慧查查</h2><div class="sub">空教室 / 异常提交 / 预测日志 / AIGC检查</div><div class="tabs"><button onclick="setChachaTab('rooms')">教室</button><button onclick="setChachaTab('submit')">提交</button><button onclick="setChachaTab('log')">日志</button><button onclick="setChachaTab('ai')">AIGC</button></div><div class="roomList" id="roomList"></div><div class="appActions"><button onclick="toggleChacha()">关闭</button></div></div>
-  <div class="mapShell" id="mapShell"><div id="mapViewport"><div id="map"></div></div><div class="predictionBox" id="predictionBox"><b>异常预测日志</b><span id="predictionText">暂无预测。</span></div><div class="bubble" id="bubble">剧情整合版：现在可以推进三线索与四结局。</div></div>
+  <div class="mapShell" id="mapShell"><div id="mapViewport"><div id="map"></div></div><div class="predictionBox" id="predictionBox"><b>异常预测日志</b><span id="predictionText">暂无预测。</span></div><div class="bubble" id="bubble">剧情整合版：现在可以推进三线索与四结局。</div><div class="bubble guardBubble" id="guardBubble"></div></div>
   <div class="regionPill" id="regionPill">当前区域：校园总览</div>
   <div class="toast" id="toast">WASD 移动；靠近入口 / 舍友 / 插座 / 源文件 / 终端时按 E 交互。</div>
   <div class="legend"><span class="tag">线索：0/3</span><span class="tag" id="syncStageTag">同步状态：稳定</span><span class="tag">预览源文件：同步 +30%</span></div>
-  <div class="modalShade" id="modalShade"><div class="modal" id="modal"><h2>第一幕：异常提交</h2><p>屏幕右下角弹出智慧查查通知：</p><div class="line system"><b>智慧查查</b>你的人工智能导论大作业已成功提交。</div><p>你停下敲键盘的手。文件还在桌面上，报告还没有写完，你也从未点击过提交。</p><p>可系统页面里，已经出现了一个同名游戏文件。</p><div class="fileBox">Reality_Game_auto_final.html
-提交时间：21:00:00
-提交状态：成功
-文件摘要：玩家将在 21:01 离开宿舍。</div><p>宿舍灯突然灭了。楼道里传来几声抱怨，很快又安静下来。</p><p>你的电脑只剩 30% 电量。如果不去教学楼找插座，你甚至没有机会撤回那个异常提交版本。</p><div class="actions"><button class="good" onclick="closeModal()">正式开始</button></div></div></div>
+  <div class="modalShade" id="modalShade"><div class="modal" id="modal"></div></div>
 </div></div>
 <script>
+// ================= 0. DOM 引用与基础工具 =================
 let tileSize=30;
-const mapEl=document.getElementById('map'),bubbleEl=document.getElementById('bubble'),toastEl=document.getElementById('toast'),regionPill=document.getElementById('regionPill'),modalShade=document.getElementById('modalShade'),mapShell=document.getElementById('mapShell'),chachaPanel=document.getElementById('chachaPanel'),roomList=document.getElementById('roomList'),predictionBox=document.getElementById('predictionBox'),predictionText=document.getElementById('predictionText');
+const mapEl=document.getElementById('map'),bubbleEl=document.getElementById('bubble'),toastEl=document.getElementById('toast'),regionPill=document.getElementById('regionPill'),modalShade=document.getElementById('modalShade'),mapShell=document.getElementById('mapShell'),chachaPanel=document.getElementById('chachaPanel'),roomList=document.getElementById('roomList'),predictionBox=document.getElementById('predictionBox'),predictionText=document.getElementById('predictionText'),guardBubbleEl=document.getElementById('guardBubble');
+// 把异常预测日志移出地图容器，避免遮挡教室。
+document.querySelector('.frame').appendChild(predictionBox);
 function svgNode(tag,attrs={}){const el=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs))el.setAttribute(k,v);return el}
 const BUILDING={corridors:[{x:6,y:4,w:3,h:14},{x:23,y:4,w:3,h:14},{x:6,y:4,w:20,h:3},{x:6,y:17,w:20,h:2},{x:14,y:18,w:4,h:3}],rooms:[
 {x:1,y:3,w:5,h:4,type:'free',name:'主南201',socket:true},{x:1,y:8,w:5,h:4,type:'normal',name:'主南202',socket:false},{x:1,y:13,w:5,h:4,type:'used',name:'主南203',socket:true},
@@ -52,15 +52,77 @@ const BUILDING={corridors:[{x:6,y:4,w:3,h:14},{x:23,y:4,w:3,h:14},{x:6,y:4,w:20,
 {x:26,y:3,w:5,h:4,type:'free',name:'主北201',socket:true},{x:26,y:8,w:5,h:4,type:'normal',name:'主北202',socket:false},{x:26,y:13,w:5,h:4,type:'free',name:'主北203',socket:true},
 {x:12,y:8,w:2,h:2,type:'small',name:'储物间',socket:false},{x:18,y:8,w:2,h:2,type:'small',name:'值班室',socket:false},{x:14,y:1,w:4,h:3,type:'normal',name:'主201',socket:false}
 ],doors:[{x:6,y:5},{x:6,y:9},{x:6,y:14},{x:9,y:8},{x:9,y:13},{x:11,y:4},{x:20,y:4},{x:22,y:8},{x:22,y:13},{x:25,y:5},{x:25,y:9},{x:25,y:14},{x:15,y:17},{x:16,y:17}]};
-function roomColor(t){return t==='free'?'#f3d68d':t==='used'?'#caa4c9':t==='source'?'#dc6a70':t==='upload'?'#59bfa8':t==='small'?'#dfd0bd':'#efc786'}
+function roomColor(t, revealed=false){
+  if(!revealed && ['free','used','normal','source','upload'].includes(t))return '#efc786';
+  return t==='free'?'#bfe5a8':t==='used'?'#caa4c9':t==='source'?'#dc6a70':t==='upload'?'#59bfa8':t==='small'?'#dfd0bd':'#efc786';
+}
+function roomScanActive(){return state.region==='building' && state.roomInfoRevealed && state.elapsedReal < state.roomScanVisibleUntil}
+function terminalScanActive(){return state.region==='building' && state.terminalInfoRevealed && state.elapsedReal < state.terminalScanVisibleUntil}
+function roomDisplayName(room){
+  if(room.type==='source')return terminalScanActive()?'可疑终端室':'主M305';
+  if(room.type==='upload')return terminalScanActive()?'提交终端室':'主M306';
+  return room.name;
+}
+function roomIsRevealed(room){
+  if(room.type==='source'||room.type==='upload')return terminalScanActive();
+  if(['free','used','normal'].includes(room.type))return roomScanActive();
+  return true;
+}
 const REGIONS={campus:{name:'校园总览',cols:24,rows:16,spawn:{x:3,y:3},type:'campus',exits:[{x:11,y:8,to:'park',spawn:{x:3,y:9},text:'你沿着夜色中的小路走进了公园。'},{x:19,y:11,to:'building',spawn:{x:15,y:20},text:'你进入教学楼一层。'}],npcs:[],pois:[]},park:{name:'夜间公园',cols:28,rows:18,spawn:{x:3,y:9},type:'park',exits:[{x:2,y:6,to:'campus',spawn:{x:11,y:8},text:'你离开公园，回到校园总览。'},{x:20,y:16,to:'building',spawn:{x:15,y:20},text:'你穿过公园，来到教学楼入口。'}],npcs:[{id:'roommate',x:13,y:10}],pois:[{type:'clue',x:13,y:10}]},building:{name:'教学楼一层',cols:32,rows:22,spawn:{x:15,y:20},type:'building',exits:[{x:15,y:21,to:'park',spawn:{x:20,y:16},text:'你离开教学楼，回到了公园。'}],npcs:[{id:'guard',x:24,y:5}],pois:[]}};
-function buildingPois(){const arr=[{type:'exit',x:15,y:21},{type:'source',x:11.5,y:2.5},{type:'upload',x:20,y:2.5}];for(const r of BUILDING.rooms){if(r.socket)arr.push({type:'socket',x:r.x+r.w-1.1,y:r.y+r.h-1.1,room:r.name})}return arr}
-const GAME_TOTAL_MINUTES=60;
-const GAME_TOTAL_REAL_SECONDS=300;
-const state={region:'campus',pos:{x:3,y:3},keys:new Set(),holdingInteract:false,modalOpen:true,started:false,gameOver:false,elapsedReal:0,battery:30,sync:0,stage:0,hasSource:false,uploaded:false,isCharging:false,chargingRoom:null,chargeAcc:0,chachaTab:'rooms',roommateRole:Math.random()<0.5?'friend':'enemy',roommateTalk:0,roommateLineText:'',clues:{roommate:false,source:false,ai:false},prediction:null,predictionCooldown:5,predictionLog:[],scene:{park:false,building:false,chachaHint:false,aigcPrompt:false},toast:'WASD 移动；靠近入口 / 舍友 / 插座 / 源文件 / 终端时按 E 交互。'};
+function buildingPois(){
+  const arr=[{type:'exit',x:15,y:21}];
+  if(terminalScanActive()){
+    arr.push({type:'source',x:11.5,y:2.5});
+    arr.push({type:'upload',x:20,y:2.5});
+  }
+  if(roomScanActive()){
+    for(const r of BUILDING.rooms){
+      if(r.socket)arr.push({type:'socket',x:r.x+r.w-1.1,y:r.y+r.h-1.1,room:r.name});
+    }
+  }
+  return arr;
+}
+
+// ================= 1. 配置、文本与全局数据 =================
+const CONFIG={
+  gameTotalMinutes:120,
+  gameTotalRealSeconds:600,
+  batteryDrainInterval:5,
+  batteryDrainAmount:1,
+  chachaOpenCost:5,
+  roomScanCost:10,
+  terminalScanCost:10,
+  aigcBatteryCost:20,
+  uploadBatteryCost:50,
+  chargePerSecond:2,
+  predictionDuration:12,
+  predictionBaseCooldown:5,
+  predictionHitSyncGain:10,
+  predictionMissSyncLoss:5,
+  scanRevealSeconds:15
+};
+const STAGE_OPENINGS={"intro": {"title": "第一幕：异常提交", "body": ["屏幕右下角弹出智慧查查通知：", "<div class='line system'><b>智慧查查</b>你的人工智能导论大作业已成功提交。</div>", "你停下敲键盘的手。", "文件还在桌面上，报告还没有写完，你也从未点击过提交。", "可系统页面里，已经出现了一个同名游戏文件：", "<div class='fileBox'>Reality_Game_auto_final.html\n提交时间：21:00:00\n提交状态：成功\n游戏状态：已运行\n游戏日志：玩家将在 21:01 离开宿舍。</div>", "宿舍灯突然灭了。", "楼道里传来几声抱怨，很快又安静下来。", "你的电脑只剩 35% 电量。如果不去教学楼找插座，你仍然没有太多时间撤回那个异常提交版本。"], "tips": ["WASD 移动。", "靠近可交互对象时按 E。", "注意电脑电量和剩余时间。"], "goal": "离开宿舍，穿过公园，前往教学楼。"}, "escape": {"title": "第二幕：夜间出逃", "body": ["你抱着电脑离开宿舍。", "夜风从楼间穿过，屏幕右上角的电量数字仍在缓慢下降。", "系统里那个未知版本仍然显示为“已提交”。更诡异的是，异常预测日志开始续写你的行动。", "<div class='fileBox'>异常报告：\n玩家将穿过公园，进入教学楼寻找可用插座。</div>", "你突然意识到，它不是在记录过去。", "它是在提前写下你接下来可能会做什么。"], "tips": ["留意屏幕上的异常预测日志。", "预测日志会不断更新你的可能行动。", "你可以选择立刻照做，也可以先观察、绕路或等待。"], "goal": "穿过公园，寻找前往教学楼的入口。"}, "roommate": {"title": "第三幕：公园舍友", "body": ["公园的小路被路灯切成一段一段。", "你看见舍友站在路边，像是刚从图书馆回来。", "他看见你抱着电脑，先是一愣，随后问：", "<div class='line npc'><b>舍友</b>这么晚了，还要去教学楼？</div>", "你正想解释宿舍停电和异常提交，却忽然想起：异常报告刚刚写下，你会在公园里遇到舍友。"], "tips": ["靠近舍友后按 E，可以逐句推进对话。", "对话不会一次性全部显示，请继续按 E 阅读。", "如果不想继续对话，也可以先离开。"], "goal": "与舍友对话，判断他是否知道异常提交的事。"}, "building": {"title": "第四幕：教学楼充电", "body": ["你进入教学楼一层。", "走廊灯并没有完全熄灭，只是亮得很低，像是被人刻意调暗。", "教室门牌还在，但门口的电子屏大多显示异常。你看不出哪间教室空闲，也看不见哪里有插座。", "智慧查查弹出提示：", "<div class='line system'><b>智慧查查</b>检测到附近存在可用教室与插座。是否运行教室与插座扫描？</div>", "这一次，你很清楚它能帮你节省时间。", "但异常预测日志也正等着你照它写下的方式行动。"], "tips": ["教室初始状态并不可靠，需要借助智慧查查确认。", "打开智慧查查可以查看查询面板。", "运行教室与插座扫描后，部分教室和插座会被临时标记。", "标记只会保留一段时间，请记住位置后尽快行动。", "靠近插座后按住 E，可以为电脑充电。"], "goal": "找到空闲教室和插座，将电脑电量恢复到可以继续行动的程度。"}, "source": {"title": "第五幕：异常源文件", "body": ["电脑电量终于回到安全线以上。", "你可以继续处理异常提交了。", "但教学楼里每间教室看起来都差不多。源文件终端伪装成一间普通教室，像是故意等你走错方向。", "智慧查查的提交记录里出现了新的空白项：", "<div class='fileBox'>终端位置：未知。</div>", "你可以运行终端扫描，也可以凭记忆和直觉一间间找。"], "tips": ["普通教室中可能隐藏着特殊终端。", "运行终端扫描后，可疑终端会被临时标记。", "标记不会永久保留，请记住位置后尽快前往。", "靠近可疑终端后按 E，可以尝试打开文件管理器。"], "goal": "定位异常源文件终端，查看异常提交背后的文件记录。"}, "aigc": {"title": "第六幕：AIGC 检查", "body": ["源文件目录里出现了 prompt_history.txt。", "你已经知道，这个异常游戏并不只是系统事故。", "智慧查查忽然弹出新的异常提示：", "<div class='line system'><b>智慧查查</b>当前条件允许进行 AIGC 检查。</div>", "这项检查可能确认异常文件的生成来源。", "但它会消耗大量电量，而且检查结果一旦出现，你就不能再假装这只是一个偶然错误。"], "tips": ["你可以在智慧查查中选择是否运行 AIGC 检查。", "检查会消耗较多电量。", "如果暂时不想检查，可以关闭提示，继续探索或补充电量。"], "goal": "决定是否运行 AIGC 检查，进一步确认异常文件的来源。"}, "terminal": {"title": "第七幕：提交终端", "body": ["提交终端终于被定位。", "屏幕上显示着两个版本：", "<div class='fileBox'>异常提交版本：Reality_Game_auto_final.html\n真实游戏版本：index.html</div>", "它们的文件名几乎一样，像是现实和游戏互相覆盖后留下的重影。", "终端等待你的操作。", "你还没有完全确定自己理解了这一切，但时间和电量都不会等你。"], "tips": ["靠近提交终端后按 E，可以打开提交界面。", "提交界面会根据你当前掌握的信息显示可选操作。", "不同选择会导向不同结果，请在确认后再操作。"], "goal": "在提交终端前做出选择，处理异常提交版本。"}, "returnDorm": {"title": "第八幕：返回宿舍", "body": ["上传完成。", "系统提示异常提交版本已被覆盖。", "教学楼重新安静下来，像是什么都没有发生过。可异常预测日志并没有立刻消失，它只是停止了续写。", "你需要回到宿舍，确认现实是否恢复。", "如果一切顺利，这件事会像一次深夜赶作业的事故，被你含糊地归档为“还好赶上了”。", "至于异常游戏到底从哪里来，也许你永远不会再追问。"], "tips": ["沿原路返回宿舍。", "路上仍然需要注意电量和时间。", "回到宿舍区域后，确认现实状态。"], "goal": "返回宿舍，确认现实是否恢复。"}};
+const ENDING_SCENES={"BATTERY": {"title": "BE：电脑电量归零", "html": "<h2>BE：电脑电量归零</h2><p>屏幕忽然暗了下去。</p><p>风扇声停止，键盘背光熄灭，最后一点亮光从电量图标上消失。</p><p>你愣了几秒，才想起自己还没上传真实游戏，也还没撤回那个异常提交版本。</p><p>黑暗里，一切重新安静下来。</p><p>你以为事情会到此为止。</p><p>第二天早上，手机闹钟还没有响，你却准时睁开了眼。</p><p>6:30。</p><p>你平时怎么也起不来的早八时间。</p><p>桌面上，已经关机的电脑不知何时重新亮起。屏幕中央停着一行新的游戏日志：</p><div class='fileBox'>由于早八，玩家需要在 6:30 起床。\n玩家已按时起床。\n现实同步稳定。</div><p>你坐在床上，忽然意识到：</p><p>昨晚失败的并不是游戏。</p><p>是现实失去了最后一次反抗的机会。</p>"}, "TIME": {"title": "BE：DDL 结束", "html": "<h2>BE：DDL 结束</h2><p>23:00。</p><p>智慧查查的倒计时归零。</p><p>屏幕上没有爆炸，没有红色警告，也没有任何夸张的失败动画。</p><p>只有一条普通得不能再普通的系统提示：</p><div class='fileBox'>提交通道已关闭。\n最终提交版本：Reality_Game_auto_final.html</div><p>你盯着那行字，忽然觉得它甚至有点合理。</p><p>毕竟系统记录显示，作业早在 21:00 就已经成功提交。</p><p>你的迟疑、奔跑、充电、查询、怀疑，都没有被写进最终记录。</p><p>几秒后，异常预测日志自动补全最后一行：</p><div class='fileBox'>玩家未能在截止时间前覆盖异常版本。\n现实将以已提交版本为准继续运行。</div><p>第二天课堂上，老师表扬了你的“大作业创意”。</p><p>同学们都说那个游戏很有意思。</p><p>只有你知道：</p><p>你根本没有完成它。</p><p>它完成了你。</p>"}, "SYNC": {"title": "BE：完全同步", "html": "<h2>BE：完全同步</h2><p>同步率达到 100%。</p><p>这一刻，游戏没有再预测你的行动。</p><p>它开始陈述事实。</p><div class='fileBox'>玩家停下脚步。\n玩家看向屏幕。\n玩家意识到自己已经来不及了。</div><p>你想移开视线，却发现自己的动作和日志里的每一个字严丝合缝。</p><p>不是它写得准。</p><p>是现实终于学会了按它写的方式发生。</p><p>教学楼的走廊变得过分整齐。教室门牌、插座位置、智慧查查提示、作业提交状态，全都像被同一个系统重新排版过。</p><p>你听见身后传来巡查员的声音：</p><div class='line system'><b>巡查员</b>同学，现在该休息了。</div><p>这句话平静、礼貌、没有恶意。</p><p>正因为如此，才更像一条不可违抗的系统规则。</p><p>屏幕上，最后一行日志缓慢浮现：</p><div class='fileBox'>玩家未能阻止同步。\n从现在起，现实将不再需要玩家确认。</div><p>你终于明白，最可怕的不是游戏入侵现实。</p><p>而是现实变得像游戏一样顺滑、高效、合理，并且不再给你留下迟疑的空间。</p>"}, "GIVEUP": {"title": "BE：异常保留", "html": "<h2>BE：异常保留</h2><p>你没有按下覆盖按钮。</p><p>也许是电量不够，也许是时间太紧，也许只是因为你忽然觉得：</p><p>反正系统已经显示提交成功了。</p><p>反正老师只会看到最终文件。</p><p>反正这个异常游戏看起来也没有立刻伤害谁。</p><p>你合上电脑，离开教学楼。</p><p>身后的提交终端没有发出警报，只是安静地保存了当前状态。</p><div class='fileBox'>异常版本：保留\n真实版本：未覆盖\n现实同步：继续</div><p>第二天，你发现不只是自己的作业页面发生了变化。</p><p>隔壁同学的课程报告里，多出了一段他从未写过的总结。</p><p>班群里，有人说自己的实验截图提前生成好了。</p><p>甚至连老师发布的通知，都开始像某种自动续写的文本：</p><div class='fileBox'>请各位同学按照系统推荐路径完成学习任务。\n无需重复确认。</div><p>你忽然想起昨晚那个按钮。</p><p>不是你没有机会处理异常。</p><p>是你亲手把它留在了现实里。</p>"}, "HE": {"title": "HE：覆盖成功", "html": "<h2>HE：覆盖成功</h2><p>你回到宿舍时，电已经恢复了。</p><p>室友翻了个身，楼道重新亮起，桌上的水杯、书、充电线和散落的草稿纸都回到熟悉的位置。</p><p>电脑屏幕上，智慧查查显示：</p><div class='fileBox'>异常提交版本已覆盖。\n当前提交文件：index.html\n提交状态：成功</div><p>你长长地松了一口气。</p><p>至少作业保住了。</p><p>至少系统页面恢复正常了。</p><p>至少今晚发生的一切，都可以被解释成一次奇怪的缓存错误、一次网页异常、一次 AI 生成代码留下的 bug。</p><p>你没有继续翻看那些记录。</p><p>也没有继续追问，那个异常游戏最初为什么会知道你要做什么。</p><p>第二天，你把项目链接和报告一起交了上去。</p><p>展示时，老师说你的创意很有意思：</p><div class='line npc'><b>老师</b>AI 生成的游戏反过来影响现实，这个设定很有想法。</div><p>你笑了笑，说：</p><div class='line player'><b>玩家</b>是的，只是一个概念设计。</div><p>屏幕上，智慧查查的图标安静地停在右下角。</p><p>没有弹窗。</p><p>没有预测。</p><p>也没有新的日志。</p><p>可是从那以后，每当你准备让 AI “直接帮我生成完整版本”时，你都会迟疑一秒。</p><p>也许这已经足够了。</p>"}, "TE": {"title": "TE：恢复真实", "html": "<h2>TE：恢复真实</h2><p>你按下覆盖按钮。</p><p>终端没有立刻响应。</p><p>几秒钟里，屏幕上不断闪过你曾经输入过的需求、修改意见和确认语句：</p><div class='fileBox'>帮我直接生成可以运行的版本。\n再加一个同步率。\n舍友要随机友好或敌对。\n异常报告要预测玩家下一步行动。\n结局要有 TE、HE、BE、OE。</div><p>你突然明白，异常游戏并不是某个外来的怪物。</p><p>它是你一次次提出需求、一次次跳过理解、一次次接受生成结果后，留下来的影子。</p><p>它最了解你，不是因为它比你更像人。</p><p>而是因为你把太多还没有想清楚的东西交给了它。</p><p>上传进度缓慢推进。</p><div class='fileBox'>正在覆盖异常版本……\n正在删除自动续写日志……\n正在断开现实同步……</div><p>同步率开始下降。</p><p>教学楼恢复成普通的夜晚。走廊不再像被脚本安排过的路线，教室门牌也只是教室门牌。</p><p>智慧查查最后弹出一条提示：</p><div class='fileBox'>检测到玩家正在偏离最优路径。\n是否重新生成建议？</div><p>你没有点击。</p><p>你只是合上电脑，站在走廊里等了一会儿。</p><p>现实重新变得麻烦、迟缓、不够高效。</p><p>你仍然要自己写报告，自己修改代码，自己面对不够完美的作品。</p><p>但也正因为如此，它重新变成了你的现实。</p><p>第二天，你打开空白文档，在报告最后写下：</p><div class='line player'><b>玩家</b>AI 可以帮助我生成作品，但不能替我承担选择。</div><p>这一次，句子是你自己写的。</p>"}, "OE": {"title": "OE：幕后操盘手", "html": "<h2>OE：幕后操盘手</h2><p>你没有覆盖异常游戏。</p><p>相反，你打开了同步规则文件。</p><p>那一瞬间，同步率直接跳到 100%。</p><p>按照原本的规则，你应该失败。</p><p>可是这一次，屏幕没有变黑，也没有出现“游戏结束”。</p><p>终端只是安静地询问：</p><div class='fileBox'>是否由玩家接管同步规则？</div><p>你点击了确认。</p><p>整个教学楼像是轻轻震动了一下。走廊、教室、插座、终端、智慧查查、异常预测日志，全都重新排列成你可以阅读的格式。</p><p>你第一次不是被日志预测。</p><p>你在写日志。</p><div class='fileBox'>玩家将返回宿舍。\n玩家将按时完成报告。\n玩家将在展示中获得认可。\n玩家将不再浪费时间。</div><p>这些句子看起来太诱人了。</p><p>它们不像命令。</p><p>它们像一个终于懂你的人，替你把混乱的人生整理成了清晰任务。</p><p>第二天，现实变得顺滑起来。</p><p>你不再拖延。课程资料自动归档。作业自动排期。食堂总是推荐你最该吃的窗口。图书馆总能把最合适的资料推到你面前。</p><p>所有人都说，你最近状态好极了。</p><p>你也这么觉得。</p><p>直到某天深夜，屏幕右下角弹出一条新的智慧查查通知：</p><div class='fileBox'>玩家将相信自己成为了幕后操盘手。</div><p>你盯着那行字很久。</p><p>然后你发现，自己的手已经按下了确认。</p>"}};
+
+const GAME_TOTAL_MINUTES=CONFIG.gameTotalMinutes;
+const GAME_TOTAL_REAL_SECONDS=CONFIG.gameTotalRealSeconds;
+const state={region:'campus',pos:{x:3,y:3},keys:new Set(),holdingInteract:false,modalOpen:true,started:false,gameOver:false,elapsedReal:0,battery:35,sync:0,stage:0,hasSource:false,uploaded:false,isCharging:false,chargingRoom:null,chargeAcc:0,chachaTab:'rooms',roommateRole:Math.random()<0.5?'friend':'enemy',roommateTalk:0,roommateLineText:'',clues:{roommate:false,source:false,ai:false,guard:false},prediction:null,predictionCooldown:5,predictionLog:[],roomInfoRevealed:false,terminalInfoRevealed:false,roomScanVisibleUntil:0,terminalScanVisibleUntil:0,lastRoomScanResult:[],lastTerminalScanResult:[],predictionBrokenCount:0,predictionHitCount:0,guard:{mode:'patrol',x:24,y:5,pathIndex:0,alertTimer:0,chaseTimer:0,searchTimer:0,caughtCount:0,line:'',dialogue:null},scene:{park:false,roommate:false,building:false,source:false,terminal:false,aigcPrompt:false},toast:'WASD 移动；靠近入口 / 舍友 / 插座 / 源文件 / 终端时按 E 交互。'};
 function closeModal(){state.modalOpen=false;modalShade.style.display='none';if(!state.started){state.started=true;state.toast='游戏开始：21:00。当前任务：穿过公园，进入教学楼寻找插座。'}updateBubble()}window.closeModal=closeModal;
 function showModal(html){state.modalOpen=true;document.getElementById('modal').innerHTML=html;modalShade.style.display='grid'}
-function showHelp(){showModal(`<div class="modal"><h2>操作说明</h2><p>WASD 连续移动。靠近入口、舍友、插座、源文件、提交终端时按 E 交互。</p><p>目标：在 22:00 前处理异常提交。集齐三条线索后，最终可以选择覆盖或保留异常游戏。当前时间从 21:00 开始，现实 5 秒等于游戏内 1 分钟。</p><div class="actions"><button onclick="closeModal()">继续</button></div></div>`)}
+
+function renderStageOpeningHTML(key){
+  const data=STAGE_OPENINGS[key];
+  if(!data)return '<h2>提示</h2><p>继续探索。</p>';
+  const body=data.body.map(p=>p.startsWith('<')?p:`<p>${p}</p>`).join('');
+  const tips=data.tips&&data.tips.length?`<div class="fileBox">操作提示：\n${data.tips.map(x=>'· '+x).join('\n')}</div>`:'';
+  const goal=data.goal?`<p><b>当前目标：</b>${data.goal}</p>`:'';
+  return `<h2>${data.title}</h2>${body}${tips}${goal}`;
+}
+function showStageOpening(key,buttonText='继续'){
+  showModal(`<div class="modal">${renderStageOpeningHTML(key)}<div class="actions"><button class="good" onclick="closeModal()">${buttonText}</button></div></div>`);
+}
+
+function showHelp(){showModal(`<div class="modal"><h2>操作说明</h2><p>WASD 连续移动。靠近入口、舍友、插座、可疑终端、提交终端时按 E 交互。</p><p>智慧查查可以提供教室、插座与终端扫描，但每次查询都会消耗电量。异常预测日志会不断写出你的可能行动，你可以选择立即照做，也可以观察、绕路或等待。</p><div class="actions"><button onclick="closeModal()">继续</button></div></div>`)}
 function resetGame(){location.reload()}window.showHelp=showHelp;window.resetGame=resetGame;
 function clueCount(){return Object.values(state.clues).filter(Boolean).length}
 function computeTileSize(r){const shell=mapShell.getBoundingClientRect(),pad=34;return Math.floor(Math.min(34,(shell.width-pad)/r.cols,(shell.height-pad)/r.rows))}
@@ -68,13 +130,40 @@ function makeSvgRoot(r){const svg=svgNode('svg',{class:'bgSvg',viewBox:`0 0 ${r.
 function drawCampus(svg,r){const s=tileSize;svg.appendChild(svgNode('rect',{width:r.cols*s,height:r.rows*s,fill:'#dbeed6'}));svg.appendChild(svgNode('path',{d:`M ${3*s} ${2*s} C ${6*s} ${3*s},${8*s} ${5*s},${11*s} ${8*s} C ${14*s} ${10*s},${17*s} ${10*s},${20*s} ${11*s}`,fill:'none',stroke:'#f6f4ed','stroke-width':s*.9,'stroke-linecap':'round'}));svg.appendChild(svgNode('ellipse',{cx:11*s,cy:7*s,rx:4*s,ry:2.7*s,fill:'#b8e0b0'}));svg.appendChild(svgNode('path',{d:`M ${9.8*s} ${6.4*s} C ${10.7*s} ${5.5*s},${12.7*s} ${5.6*s},${13*s} ${7.1*s} C ${13.4*s} ${8.6*s},${10.8*s} ${9*s},${9.6*s} ${7.8*s} Z`,fill:'#7fc0ea'}));svg.appendChild(svgNode('rect',{x:1*s,y:1*s,width:5*s,height:3*s,rx:s*.5,fill:'#88b8e9'}));svg.appendChild(svgNode('text',{x:2.2*s,y:2.8*s,'font-size':s*.55,fill:'#2d4560'})).textContent='宿舍';svg.appendChild(svgNode('rect',{x:17*s,y:8*s,width:5*s,height:4*s,rx:s*.6,fill:'#f0f2ee',stroke:'#c8d3c8','stroke-width':2}));svg.appendChild(svgNode('text',{x:18*s,y:10*s,'font-size':s*.5,fill:'#4f5d55'})).textContent='教学楼'}
 function drawPark(svg,r){const s=tileSize;svg.appendChild(svgNode('rect',{width:r.cols*s,height:r.rows*s,fill:'#4f7467'}));svg.appendChild(svgNode('rect',{width:r.cols*s,height:r.rows*s,fill:'#26394b',opacity:.22}));const paths=[`M ${1*s} ${5*s} C ${4*s} ${4*s},${7*s} ${4.5*s},${9*s} ${6*s} C ${12*s} ${8*s},${16*s} ${8*s},${20*s} ${7*s} C ${23*s} ${6*s},${25*s} ${5.5*s},${27*s} ${5*s}`,`M ${9*s} ${6*s} C ${7*s} ${8*s},${7*s} ${10*s},${9*s} ${12*s} C ${12*s} ${15*s},${17*s} ${14.5*s},${20*s} ${16*s}`,`M ${16*s} ${8*s} C ${16*s} ${10*s},${17*s} ${12*s},${19*s} ${15*s}`];paths.forEach(d=>svg.appendChild(svgNode('path',{d,fill:'none',stroke:'#d8d2c2','stroke-width':s*.78,'stroke-linecap':'round'})));svg.appendChild(svgNode('path',{d:`M ${11*s} ${5.4*s} C ${13*s} ${4.1*s},${17*s} ${4.7*s},${18*s} ${6.7*s} C ${19*s} ${8.8*s},${16.5*s} ${10.5*s},${13.4*s} ${10*s} C ${10.8*s} ${9.6*s},${9.3*s} ${7*s},${11*s} ${5.4*s} Z`,fill:'#376f91'}));[[4,3,1.2],[23,4,1.3],[4,13,1.4],[22,13,1.3],[8,15,1.1],[18,2,1.1],[25,10,1.1]].forEach(([x,y,rr])=>{svg.appendChild(svgNode('ellipse',{cx:x*s,cy:y*s,rx:rr*s,ry:rr*.6*s,fill:'#2f5942'}));svg.appendChild(svgNode('ellipse',{cx:(x-.3)*s,cy:(y-.25)*s,rx:rr*.55*s,ry:rr*.28*s,fill:'#426e52',opacity:.9}))});[[10,5],[22,7],[18,15],[13,11]].forEach(([x,y])=>{svg.appendChild(svgNode('circle',{cx:x*s,cy:y*s,r:s*2.1,fill:'#ffe29b',opacity:.16}));svg.appendChild(svgNode('circle',{cx:x*s,cy:y*s,r:s*.15,fill:'#ffe29b'}))})}
 function drawDesks(svg,room,s){if(room.w<4||room.h<3)return;for(let yy=room.y+1;yy<room.y+room.h-1;yy+=2){for(let xx=room.x+1;xx<room.x+room.w-1;xx+=2){svg.appendChild(svgNode('rect',{x:xx*s+s*.18,y:yy*s+s*.25,width:s*.75,height:s*.24,rx:3,fill:'#6d5a4a',opacity:.45}))}}svg.appendChild(svgNode('rect',{x:(room.x+.5)*s,y:(room.y+.25)*s,width:(room.w-1)*s,height:s*.18,rx:3,fill:'#2d3436',opacity:.55}))}
-function drawBuilding(svg,r){const s=tileSize;svg.appendChild(svgNode('rect',{width:r.cols*s,height:r.rows*s,fill:'#eee8df'}));svg.appendChild(svgNode('rect',{x:.4*s,y:.4*s,width:(r.cols-.8)*s,height:(r.rows-.8)*s,rx:s*.8,fill:'#f6f2eb',stroke:'#d8cbb9','stroke-width':2}));BUILDING.rooms.forEach(room=>{svg.appendChild(svgNode('rect',{x:room.x*s,y:room.y*s,width:room.w*s,height:room.h*s,rx:s*.28,fill:roomColor(room.type),stroke:'#c59a62','stroke-width':1.5}));drawDesks(svg,room,s);svg.appendChild(svgNode('text',{x:(room.x+.35)*s,y:(room.y+.82)*s,'font-size':Math.max(9,s*.42),fill:'#4d4a42','font-family':'Arial'})).textContent=room.name});BUILDING.corridors.forEach(c=>svg.appendChild(svgNode('rect',{x:c.x*s,y:c.y*s,width:c.w*s,height:c.h*s,rx:s*.18,fill:'#eee3d4',stroke:'#d4c0a8','stroke-width':1.3})));BUILDING.doors.forEach(d=>svg.appendChild(svgNode('rect',{x:(d.x+.18)*s,y:(d.y+.38)*s,width:s*.64,height:s*.18,rx:3,fill:'#7b5b3e'})));svg.appendChild(svgNode('rect',{x:14*s,y:20*s,width:4*s,height:1.5*s,rx:s*.3,fill:'#d8d0c5'}))}
-function renderRegion(){const r=REGIONS[state.region];tileSize=computeTileSize(r);mapEl.classList.add('fade');setTimeout(()=>{mapEl.innerHTML='<div class="debugGrid"></div>';mapEl.style.setProperty('--tile-size',`${tileSize}px`);mapEl.style.width=`${r.cols*tileSize}px`;mapEl.style.height=`${r.rows*tileSize}px`;const svg=makeSvgRoot(r);if(r.type==='campus')drawCampus(svg,r);if(r.type==='park')drawPark(svg,r);if(r.type==='building'){drawBuilding(svg,r);REGIONS.building.pois=buildingPois()}for(const ex of r.exits)addPoi('exit',ex.x,ex.y);for(const p of (r.pois||[]))addPoi(p.type,p.x,p.y);for(const n of r.npcs)createEntity(n.id,n.x,n.y);createEntity('player',state.pos.x,state.pos.y);regionPill.textContent=`当前区域：${r.name}`;renderChacha();updateBubble();mapEl.classList.remove('fade')},90)}
+function drawBuilding(svg,r){
+  const s=tileSize;
+  svg.appendChild(svgNode('rect',{width:r.cols*s,height:r.rows*s,fill:'#eee8df'}));
+  svg.appendChild(svgNode('rect',{x:.4*s,y:.4*s,width:(r.cols-.8)*s,height:(r.rows-.8)*s,rx:s*.8,fill:'#f6f2eb',stroke:'#d8cbb9','stroke-width':2}));
+  BUILDING.rooms.forEach(room=>{
+    const revealed=roomIsRevealed(room);
+    svg.appendChild(svgNode('rect',{x:room.x*s,y:room.y*s,width:room.w*s,height:room.h*s,rx:s*.28,fill:roomColor(room.type,revealed),stroke:'#c59a62','stroke-width':1.5}));
+    drawDesks(svg,room,s);
+    svg.appendChild(svgNode('text',{x:(room.x+.35)*s,y:(room.y+.82)*s,'font-size':Math.max(9,s*.42),fill:'#4d4a42','font-family':'Arial'})).textContent=roomDisplayName(room);
+  });
+  BUILDING.corridors.forEach(c=>svg.appendChild(svgNode('rect',{x:c.x*s,y:c.y*s,width:c.w*s,height:c.h*s,rx:s*.18,fill:'#eee3d4',stroke:'#d4c0a8','stroke-width':1.3})));
+  BUILDING.doors.forEach(d=>svg.appendChild(svgNode('rect',{x:(d.x+.18)*s,y:(d.y+.38)*s,width:s*.64,height:s*.18,rx:3,fill:'#7b5b3e'})));
+  svg.appendChild(svgNode('rect',{x:14*s,y:20*s,width:4*s,height:1.5*s,rx:s*.3,fill:'#d8d0c5'}));
+}
+function renderRegion(){const r=REGIONS[state.region];tileSize=computeTileSize(r);mapEl.classList.add('fade');setTimeout(()=>{mapEl.innerHTML='<div class="debugGrid"></div>';mapEl.style.setProperty('--tile-size',`${tileSize}px`);mapEl.style.width=`${r.cols*tileSize}px`;mapEl.style.height=`${r.rows*tileSize}px`;const svg=makeSvgRoot(r);if(r.type==='campus')drawCampus(svg,r);if(r.type==='park')drawPark(svg,r);if(r.type==='building'){drawBuilding(svg,r);REGIONS.building.pois=buildingPois()}for(const ex of r.exits)addPoi('exit',ex.x,ex.y);for(const p of (r.pois||[]))addPoi(p.type,p.x,p.y);for(const n of r.npcs){if(n.id==='guard'&&state.guard)createEntity(n.id,state.guard.x,state.guard.y);else createEntity(n.id,n.x,n.y)}createEntity('player',state.pos.x,state.pos.y);regionPill.textContent=`当前区域：${r.name}`;renderChacha();updateBubble();mapEl.classList.remove('fade')},90)}
 function addPoi(type,x,y){const el=document.createElement('div');el.className=`poi ${type}`;if(type==='socket')el.textContent='🔌';if(type==='source')el.textContent='!';if(type==='upload')el.textContent='↑';el.style.left=`${x*tileSize+tileSize*.30}px`;el.style.top=`${y*tileSize+tileSize*.30}px`;mapEl.appendChild(el)}
-function createEntity(id,x,y){const el=document.createElement('div');el.className='entity';el.id=id;el.innerHTML='<div class="head"></div><div class="body"></div>';setEntityPos(el,x,y);mapEl.appendChild(el)}function getEntity(id){return document.getElementById(id)}function setEntityPos(el,x,y){const off=Math.max(2,tileSize*.14);el.style.left=`${x*tileSize+off}px`;el.style.top=`${y*tileSize+off}px`}
+function createEntity(id,x,y){const el=document.createElement('div');el.className='entity lego';el.id=id;el.innerHTML='<div class="shadow"></div><div class="beam"></div><div class="arm left"><span class="hand"></span></div><div class="arm right"><span class="hand"></span></div><div class="leg left"></div><div class="leg right"></div><div class="body"></div><div class="laptop"></div><div class="flashlight"></div><div class="head"></div><div class="hat"></div>';setEntityPos(el,x,y);mapEl.appendChild(el)}function getEntity(id){return document.getElementById(id)}function setEntityPos(el,x,y){const off=Math.max(1,tileSize*.08);el.style.left=`${x*tileSize+off}px`;el.style.top=`${y*tileSize-tileSize*.08}px`}
 function inRect(x,y,r){return x>=r.x&&y>=r.y&&x<r.x+r.w&&y<r.y+r.h}function isInsideEllipse(x,y,cx,cy,rx,ry){const dx=(x-cx)/rx,dy=(y-cy)/ry;return dx*dx+dy*dy<=1}
 function isWalkable(region,x,y){const r=REGIONS[region];if(x<0||y<0||x>=r.cols||y>=r.rows)return false;if(region==='campus')return x>0&&y>0&&x<23&&y<15;if(region==='park'){if(x<=0||y<=0||x>=27||y>=17)return false;if(isInsideEllipse(x,y,13.7,7.4,2.5,2.2))return false;return true}if(region==='building')return BUILDING.corridors.some(c=>inRect(x,y,c))||BUILDING.rooms.some(room=>inRect(x,y,room));return false}
-function nearPoint(p,range=1){return Math.hypot(p.x-state.pos.x,p.y-state.pos.y)<=range}function findNearbyExit(){const r=REGIONS[state.region];let chosen=null,best=999;for(const ex of r.exits){const d=Math.hypot(ex.x-state.pos.x,ex.y-state.pos.y);if(d<best){best=d;chosen=ex}}return best<=1.25?chosen:null}function nearPoi(type,range=1.2){const r=REGIONS[state.region];return (r.pois||[]).find(p=>p.type===type&&nearPoint(p,range))}function nearNPC(id){const r=REGIONS[state.region];const npc=r.npcs.find(n=>n.id===id);return npc?Math.hypot(npc.x-state.pos.x,npc.y-state.pos.y)<=1.25:false}
+function nearPoint(p,range=1){return Math.hypot(p.x-state.pos.x,p.y-state.pos.y)<=range}function findNearbyExit(){const r=REGIONS[state.region];let chosen=null,best=999;for(const ex of r.exits){const d=Math.hypot(ex.x-state.pos.x,ex.y-state.pos.y);if(d<best){best=d;chosen=ex}}return best<=1.25?chosen:null}function nearPoi(type,range=1.2){const r=REGIONS[state.region];return (r.pois||[]).find(p=>p.type===type&&nearPoint(p,range))}function actualSocketPoints(){return BUILDING.rooms.filter(r=>r.socket).map(r=>({type:'socket',x:r.x+r.w-1.1,y:r.y+r.h-1.1,room:r.name}))}function nearActualSocket(range=1.4){if(state.region!=='building')return null;return actualSocketPoints().find(p=>nearPoint(p,range))||null}function visibleSocketNearby(range=1.4){return nearPoi('socket',range)}function nearNPC(id){if(id==='guard'&&state.region==='building'&&state.guard)return Math.hypot(state.guard.x-state.pos.x,state.guard.y-state.pos.y)<=1.25;const r=REGIONS[state.region];const npc=r.npcs.find(n=>n.id===id);return npc?Math.hypot(npc.x-state.pos.x,npc.y-state.pos.y)<=1.25:false}
+
+function currentBuildingRoom(){
+  if(state.region!=='building')return null;
+  return BUILDING.rooms.find(room=>inRect(state.pos.x,state.pos.y,room))||null;
+}
+function hiddenTerminalRoom(){
+  const room=currentBuildingRoom();
+  return room&&['source','upload'].includes(room.type)?room:null;
+}
+function enoughBattery(cost){
+  if(state.battery<cost){state.toast='电量不足，无法执行该操作。';updateBubble();return false}
+  return true;
+}
+
 function moveContinuous(dx,dy,dt){let len=Math.hypot(dx,dy);if(!len)return;dx/=len;dy/=len;const speed=4.2;const nx=state.pos.x+dx*speed*dt,ny=state.pos.y+dy*speed*dt;if(isWalkable(state.region,nx,ny)){state.pos.x=nx;state.pos.y=ny}else if(isWalkable(state.region,nx,state.pos.y)){state.pos.x=nx}else if(isWalkable(state.region,state.pos.x,ny)){state.pos.y=ny}const el=getEntity('player');if(el)setEntityPos(el,state.pos.x,state.pos.y)}
 function tryExit(){
   const ex=findNearbyExit();
@@ -85,7 +174,7 @@ function tryExit(){
   if(state.region==='park'&&!state.scene.park){
     state.scene.park=true;
     renderRegion();
-    showModal(`<div class="modal"><h2>第二幕：夜间出逃</h2><p>你抱着电脑离开宿舍。夜风从楼间穿过，屏幕右上角的电量数字仍在缓慢下降。</p><p>系统里那个未知版本仍然显示为“已提交”。更诡异的是，异常预测日志开始续写你的行动。</p><div class="line system"><b>异常报告</b>玩家将穿过公园，进入教学楼寻找可用插座。</div><p>当前任务：穿过公园，进入教学楼。</p><div class="actions"><button onclick="closeModal()">继续</button></div></div>`);
+    showStageOpening('escape');
     return true;
   }
   if(state.region==='building'){
@@ -94,7 +183,7 @@ function tryExit(){
     if(!state.scene.building){
       state.scene.building=true;
       renderRegion();
-      showModal(`<div class="modal"><h2>第四幕：教学楼充电</h2><p>教学楼里只有少数教室还亮着。走廊安静得过分，巡查员的脚步声从远处传来。</p><p>你需要先保证电脑电量，否则即使找到异常源文件，也无法完成上传。</p><p>智慧查查忽然弹出一条异常提示：</p><div class="line system"><b>智慧查查</b>检测到附近存在可用教室与插座。是否打开空教室查询？</div><p>注意：打开智慧查查会消耗 5% 电量。</p><div class="actions"><button class="good" onclick="openChachaFromPrompt()">打开智慧查查</button><button class="ghost" onclick="closeModal()">暂时不用</button></div></div>`);
+      showStageOpening('building');
       return true;
     }
   }
@@ -102,7 +191,7 @@ function tryExit(){
   renderRegion();
   return true;
 }
-function interact(){if(tryExit())return;if(nearNPC('roommate')){talkRoommate();return}const socket=nearPoi('socket',1.4);if(socket){recordAction('charge_socket');state.isCharging=true;state.chargingRoom=socket.room||'教室';state.toast=`已连接 ${state.chargingRoom} 的插座。按住 E 持续充电，现实每秒 +2%。`;updateBubble();return}if(nearPoi('source',1.5)){recordAction('read_source');openFileManager();return}if(nearPoi('upload',1.5)){recordAction('upload_game');openUploadTerminal();return}state.toast='这里没有可以交互的对象。';updateBubble()}
+function interact(){if(advanceGuardDialogue())return;if(tryExit())return;if(nearNPC('roommate')){talkRoommate();return}const socket=nearActualSocket(1.4);if(socket){recordAction('charge_socket');state.isCharging=true;state.chargingRoom=socket.room||'教室';state.toast=`已连接 ${state.chargingRoom} 的插座。按住 E 持续充电，现实每秒 +${CONFIG.chargePerSecond}%。`;updateBubble();return}if(nearPoi('source',1.5)){recordAction('read_source');openFileManager();return}if(nearPoi('upload',1.5)){recordAction('upload_game');openUploadTerminal();return}const hidden=hiddenTerminalRoom();if(hidden){state.toast=hidden.type==='source'?'这看起来只是一间普通教室。也许需要先运行终端扫描。':'教室里有一台电脑，但系统入口被隐藏。也许需要先运行终端扫描。';updateBubble();return}state.toast='这里没有可以交互的对象。';updateBubble()}
 function talkRoommate(){
   recordAction('talk_roommate');
   const common=[
@@ -176,13 +265,116 @@ function openUploadTerminal(){
     showModal(`<div class="modal"><h2>提交终端：线索不足</h2><p>你已经找到了异常源文件，但仍然没有弄清楚它最初从哪里来。</p><p>现在你可以直接上传真实游戏覆盖异常版本，也可以选择放弃覆盖。放弃覆盖将导致异常版本继续保留。</p><div class="actions"><button class="good" onclick="normalCoverUpload()">上传真实游戏</button><button class="danger" onclick="giveUpCover()">放弃覆盖</button></div></div>`)
   }
 }
-function normalCoverUpload(){adjustBattery(-50);state.uploaded=true;state.stage=4;state.toast='真实游戏已上传。返回宿舍确认现实。';showModal(`<div class="modal"><h2>上传成功</h2><p>真实游戏已上传，异常版本被覆盖。</p><p>但你仍然没有弄清楚，那个异常游戏最初到底是从哪里来的。</p><div class="actions"><button onclick="closeModal()">返回宿舍</button></div></div>`);updateBubble()}
+function normalCoverUpload(){adjustBattery(-CONFIG.uploadBatteryCost);state.uploaded=true;state.stage=4;state.toast='真实游戏已上传。返回宿舍确认现实。';showModal(`<div class="modal"><h2>上传成功</h2><p>真实游戏已上传，异常版本被覆盖。</p><p>但你仍然没有弄清楚，那个异常游戏最初到底是从哪里来的。</p><div class="actions"><button onclick="closeModal()">返回宿舍</button></div></div>`);updateBubble()}
 function giveUpCover(){endGame('GIVEUP')}
-function chooseCoverTrue(){adjustBattery(-50);if(!state.gameOver)endGame('TE')}
+function chooseCoverTrue(){adjustBattery(-CONFIG.uploadBatteryCost);if(!state.gameOver)endGame('TE')}
 function chooseKeepControl(){state.sync=100;updateHud();endGame('OE')}
 window.chooseCoverTrue=chooseCoverTrue;window.chooseKeepControl=chooseKeepControl;window.normalCoverUpload=normalCoverUpload;window.giveUpCover=giveUpCover;
-function currentTask(){if(state.stage===0)return'当前任务：离开宿舍，穿过公园，进入教学楼。';if(state.stage===1)return'当前任务：用智慧查查寻找空闲教室，并在插座旁充电。';if(state.stage===2)return'当前任务：找到异常源文件。';if(state.stage===3)return'当前任务：前往提交终端，上传真实游戏。';if(state.stage===4)return'当前任务：返回宿舍，确认现实没有被覆盖。';return'继续探索。'}
-function updateBubble(){maybePromptAIGCCheck();let msg=currentTask();if(findNearbyExit())msg='已靠近区域入口：按 E 进入或退出对应地图。';if(nearNPC('roommate'))msg=state.roommateLineText||'舍友就在附近：按 E 对话。';if(nearPoi('socket',1.4))msg=state.isCharging?`正在使用 ${state.chargingRoom||'教室'} 的插座充电：按住 E，现实每秒 +2%。`:'插座就在附近：按 E 连接插座，之后按住 E 持续充电。';if(nearPoi('source',1.5))msg='异常源文件终端就在附近：按 E 打开文件管理器。';if(nearPoi('upload',1.5))msg='提交终端就在附近：按 E 处理异常提交。';bubbleEl.textContent=msg;toastEl.textContent=state.toast;updateHud();const mapRect=mapEl.getBoundingClientRect(),shellRect=mapShell.getBoundingClientRect();const left=mapRect.left-shellRect.left+state.pos.x*tileSize+tileSize*.5-30,top=mapRect.top-shellRect.top+state.pos.y*tileSize-48;bubbleEl.style.left=`${Math.max(8,left)}px`;bubbleEl.style.top=`${Math.max(8,top)}px`;document.querySelector('.legend .tag').textContent=`线索：${clueCount()}/3`}
+function currentTask(){if(state.stage===0)return'当前任务：离开宿舍，穿过公园，进入教学楼。';if(state.stage===1)return'当前任务：用智慧查查扫描教室与插座，并在插座旁充电。';if(state.stage===2)return'当前任务：定位异常源文件终端。';if(state.stage===3)return'当前任务：前往提交终端，上传真实游戏。';if(state.stage===4)return'当前任务：返回宿舍，确认现实没有被覆盖。';return'继续探索。'}
+function positionBubbleNear(el,x,y,dx=-30,dy=-48){
+  const mapRect=mapEl.getBoundingClientRect(),shellRect=mapShell.getBoundingClientRect();
+  const left=mapRect.left-shellRect.left+x*tileSize+tileSize*.5+dx;
+  const top=mapRect.top-shellRect.top+y*tileSize+dy;
+  el.style.left=`${Math.max(8,Math.min(left,mapShell.clientWidth-260))}px`;
+  el.style.top=`${Math.max(8,Math.min(top,mapShell.clientHeight-90))}px`;
+}
+function updateGuardBubble(){
+  if(!guardBubbleEl)return;
+  if(state.region!=='building'||!state.guard||state.gameOver){
+    guardBubbleEl.style.display='none';
+    return;
+  }
+  if(state.guard.dialogue&&state.guard.dialogue.active){
+    const cur=state.guard.dialogue.lines[state.guard.dialogue.index];
+    if(cur&&cur.who==='guard'){
+      guardBubbleEl.textContent='巡查员：'+cur.text;
+      guardBubbleEl.style.display='block';
+      positionBubbleNear(guardBubbleEl,state.guard.x,state.guard.y,-24,-54);
+    }else guardBubbleEl.style.display='none';
+    return;
+  }
+  if(!state.guard.line){guardBubbleEl.style.display='none';return;}
+  guardBubbleEl.textContent=state.guard.line;
+  guardBubbleEl.style.display='block';
+  positionBubbleNear(guardBubbleEl,state.guard.x,state.guard.y,-24,-54);
+}
+function updateGuardDialogueBubble(){
+  if(!(state.guard&&state.guard.dialogue&&state.guard.dialogue.active))return false;
+  const cur=state.guard.dialogue.lines[state.guard.dialogue.index];
+  if(!cur)return false;
+  if(cur.who==='player'){
+    bubbleEl.textContent='玩家：'+cur.text;
+    bubbleEl.style.display='block';
+    positionBubbleNear(bubbleEl,state.pos.x,state.pos.y,-30,-48);
+    if(guardBubbleEl)guardBubbleEl.style.display='none';
+  }else{
+    bubbleEl.style.display='none';
+    updateGuardBubble();
+  }
+  toastEl.textContent='按 E 继续对话。';
+  updateHud();
+  return true;
+}
+function advanceGuardDialogue(){
+  const d=state.guard&&state.guard.dialogue;
+  if(!(d&&d.active))return false;
+  d.index++;
+  if(d.index>=d.lines.length){
+    d.active=false;
+    state.guard.dialogue=null;
+    state.clues.guard=true;
+    state.toast='获得线索四：异常系统不只会替人偷懒，也会替人规定什么才算努力。';
+    state.guard.mode='search';
+    state.guard.searchTimer=4;
+    setGuardLine('巡查员：别在教室里熬太晚，系统会记录学习状态。');
+    updateBubble();
+    return true;
+  }
+  updateBubble();
+  return true;
+}
+function startGuardClueDialogue(){
+  state.guard.dialogue={active:true,index:0,lines:[
+    {who:'guard',text:'同学，现在该休息了。'},
+    {who:'player',text:'我还有作业没处理完，宿舍停电了。'},
+    {who:'guard',text:'系统显示你今晚已经完成提交。'},
+    {who:'player',text:'那不是我提交的。'},
+    {who:'guard',text:'系统只记录结果，不记录你是不是理解。'},
+    {who:'guard',text:'很多人也是这样。计划排得很满，资料整理得很全，学习记录也很漂亮。'},
+    {who:'guard',text:'可系统记录的是行为，不是理解。如果没有哪一步是自己判断的，那到底是谁在学习？'}
+  ]};
+  state.guard.line='';
+  state.guard.mode='dialogue';
+  state.toast='巡查员拦住了你：按 E 继续对话。';
+  updateBubble();
+}
+function updateBubble(){
+  maybePromptAIGCCheck();
+  if(updateGuardDialogueBubble()){
+    const clueTag=document.querySelector('.legend .tag');
+    if(clueTag)clueTag.textContent=`线索：${clueCount()}/3`;
+    return;
+  }
+  let localMsg='';
+  if(findNearbyExit())localMsg='已靠近区域入口：按 E 进入或退出对应地图。';
+  if(nearNPC('roommate'))localMsg=state.roommateLineText||'舍友就在附近：按 E 对话。';
+  const actualSocket=nearActualSocket(1.4);
+  if(actualSocket)localMsg=state.isCharging?`正在使用 ${state.chargingRoom||actualSocket.room||'教室'} 的插座充电：按住 E，现实每秒 +${CONFIG.chargePerSecond}%。`:(roomScanActive()?`插座就在附近：按 E 连接 ${actualSocket.room||'教室'} 的插座，之后按住 E 持续充电。`:'你摸到墙边有电源位置：按 E 尝试连接插座。');
+  if(nearPoi('source',1.5))localMsg='异常源文件终端就在附近：按 E 打开文件管理器。';
+  if(nearPoi('upload',1.5))localMsg='提交终端就在附近：按 E 处理异常提交。';
+  if(localMsg){
+    bubbleEl.textContent=localMsg;
+    bubbleEl.style.display='block';
+    positionBubbleNear(bubbleEl,state.pos.x,state.pos.y,-30,-48);
+  }else{
+    bubbleEl.style.display='none';
+  }
+  toastEl.textContent=state.toast||currentTask();
+  updateHud();
+  updateGuardBubble();
+  const clueTag=document.querySelector('.legend .tag');
+  if(clueTag)clueTag.textContent=`线索：${clueCount()}/3`;
+}
 function syncStage(){
   if(state.sync>=80)return 'critical';
   if(state.sync>=60)return 'high';
@@ -243,13 +435,13 @@ function candidatePredictions(){
     return list;
   }
   if(state.stage===1){
-    list.push({action:'open_chacha',text:predictionTextBySync('异常报告正在续写：玩家会打开智慧查查，查询哪间教室空闲。','异常报告正在续写：玩家会依赖智慧查查完成路线判断。','报告更新：智慧查查将替玩家选择可用教室。','报告更新：玩家没有必要继续寻找。请打开智慧查查。')});
+    list.push({action:'scan_rooms',text:predictionTextBySync('异常报告正在续写：玩家会运行教室与插座扫描，查询哪间教室空闲。','异常报告正在续写：玩家会依赖智慧查查完成路线判断。','报告更新：智慧查查将替玩家选择可用教室。','报告更新：请运行教室与插座扫描。玩家无需自行判断。')});
     list.push({action:'charge_socket',text:predictionTextBySync('异常报告正在续写：玩家会进入最近的空闲教室并连接插座。','异常报告正在续写：电量焦虑将推动玩家连接最近的插座。','报告更新：玩家会选择最近插座，因为这是最优解。','报告更新：玩家将连接插座。行动路径已登记。')});
     return list;
   }
   if(state.stage===2){
-    list.push({action:'read_source',text:predictionTextBySync('异常报告正在续写：玩家会前往红色终端，查看异常源文件。','异常报告正在续写：玩家已经获得足够电量，会开始追查源文件。','报告更新：玩家会查看源文件，因为好奇心正在超过谨慎。','报告更新：玩家将打开源文件。他需要知道自己曾经输入了什么。')});
-    list.push({action:'open_chacha',text:predictionTextBySync('异常报告正在续写：玩家会再次打开智慧查查确认终端位置。','异常报告正在续写：玩家会再次把判断交给智慧查查。','报告更新：智慧查查将继续提供最优路径。','报告更新：请打开智慧查查。玩家无需自行判断。')});
+    list.push({action:'scan_terminal',text:predictionTextBySync('异常报告正在续写：玩家会运行终端扫描，确认源文件位置。','异常报告正在续写：玩家会再次把判断交给智慧查查。','报告更新：智慧查查将继续提供最优路径。','报告更新：请运行终端扫描。玩家无需自行判断。')});
+    list.push({action:'read_source',text:predictionTextBySync('异常报告正在续写：玩家会查看异常源文件。','异常报告正在续写：玩家已经获得足够电量，会开始追查源文件。','报告更新：玩家会查看源文件，因为好奇心正在超过谨慎。','报告更新：玩家将打开源文件。他需要知道自己曾经输入了什么。')});
     return list;
   }
   if(state.stage===3){
@@ -263,25 +455,88 @@ function candidatePredictions(){
   }
   return list;
 }
-function createPrediction(){const list=candidatePredictions();if(!list.length)return;const item=list[Math.floor(Math.random()*list.length)];state.prediction={...item,left:12};predictionBox.classList.add('danger');predictionText.textContent=`${item.text}（${Math.ceil(state.prediction.left)}秒内）`;logPrediction('生成：'+item.text)}
-function resolvePrediction(success,reason=''){if(!state.prediction)return;if(success){adjustSync(10);state.toast=`异常预测命中：${reason||'你按照它写出的行为行动了。'} 同步率 +10%。`;logPrediction('命中：'+state.prediction.text)}else{state.toast='你没有按预测行动，异常预测失效。';logPrediction('失效：'+state.prediction.text)}state.prediction=null;state.predictionCooldown=5;predictionBox.classList.remove('danger');predictionText.textContent='暂无预测。';updateBubble()}
+function predictionCooldownBySync(){
+  if(state.sync>=80)return 2;
+  if(state.sync>=60)return 3;
+  if(state.sync>=30)return 4;
+  return CONFIG.predictionBaseCooldown;
+}
+function createPrediction(){const list=candidatePredictions();if(!list.length)return;const item=list[Math.floor(Math.random()*list.length)];state.prediction={...item,left:CONFIG.predictionDuration};predictionBox.classList.add('danger');predictionText.textContent=`${item.text}（${Math.ceil(state.prediction.left)}秒内）`;logPrediction('生成：'+item.text)}
+function resolvePrediction(success,reason=''){if(!state.prediction)return;if(success){adjustSync(CONFIG.predictionHitSyncGain);state.predictionHitCount++;state.toast=`异常预测命中：${reason||'你按照它写出的行为行动了。'} 同步率 +${CONFIG.predictionHitSyncGain}%。`;logPrediction('命中：'+state.prediction.text)}else{state.sync=Math.max(0,state.sync-CONFIG.predictionMissSyncLoss);state.predictionBrokenCount++;state.toast=`你没有按预测行动，异常预测失效。同步率 -${CONFIG.predictionMissSyncLoss}%。`;logPrediction('反预测成功：'+state.prediction.text+'（同步率 -'+CONFIG.predictionMissSyncLoss+'%）')}state.prediction=null;state.predictionCooldown=predictionCooldownBySync();predictionBox.classList.remove('danger');predictionText.textContent='暂无预测。';updateBubble()}
 function recordAction(action){if(state.prediction&&state.prediction.action===action)resolvePrediction(true)}
 function updatePrediction(dt){if(!state.started||state.modalOpen||state.gameOver)return;if(state.prediction){state.prediction.left-=dt;predictionText.textContent=`${state.prediction.text}（${Math.ceil(Math.max(0,state.prediction.left))}秒内）`;if(state.prediction.left<=0)resolvePrediction(false)}else{state.predictionCooldown-=dt;if(state.predictionCooldown<=0)createPrediction()}}
-function renderChacha(){roomList.innerHTML='';if(state.chachaTab==='rooms'){for(const r of BUILDING.rooms){if(['small','source','upload'].includes(r.type))continue;const item=document.createElement('div');item.className='roomItem';const status=r.type==='free'?'<span class="free">空闲</span>':r.type==='used'?'<span class="used">占用</span>':'<span class="risk">未知</span>';item.innerHTML=`<b>${r.name}</b>${status}　${r.socket?'有插座':'无插座'}${r.type==='free'&&r.socket?'　建议充电':''}`;roomList.appendChild(item)}}else if(state.chachaTab==='submit'){
-  const polluted=state.sync>=60;
-  roomList.innerHTML=`<div class="roomItem"><b>异常提交记录</b>提交时间：21:00:00<br>提交文件：Reality_Game_auto_final.html<br>提交状态：成功<br>提交来源：${state.hasSource?'本机缓存':'未知'}<br>生成方式：${state.hasSource?'AI辅助生成':'未知'}<br>异常状态：${polluted?'流程正常，请勿偏离报告':'同步进程运行中'}${polluted?'<br><br><span class="risk">建议：无需继续追查源文件，直接完成提交。</span>':''}</div>`
-}else if(state.chachaTab==='log'){roomList.innerHTML=`<div class="roomItem"><b>异常预测记录</b>${state.predictionLog.length?state.predictionLog.map(x=>`<div>${x}</div>`).join(''):'<div>暂无记录。</div>'}</div>`}else if(state.chachaTab==='ai'){if(!state.hasSource){roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查</b>尚未定位异常源文件，无法查询生成记录。</div>`}else if(state.clues.ai){roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查结果</b>生成来源：本机<br>模型调用记录：存在（99%）<br>人工修改比例：低<br>最终提交状态：自动完成<br><br><span class="free">线索三已获得：异常文件高度依赖 AI 生成。</span></div>`}else if(state.battery>50&&state.sync<60){roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查可运行</b>检测到电量大于 50%，同步率低于 60%。<br>可运行 AIGC 检查。运行后电量 -20%，同步率不变，并获得线索三。<br><br><button onclick="runAIGCCheck()">运行 AIGC 检查</button></div>`}else{roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查不可用</b>需要：电量 > 50%，同步率 < 60%。<br>当前电量：${Math.round(state.battery)}%，同步率：${Math.round(state.sync)}%。</div>`}}}
+function renderChacha(){
+  roomList.innerHTML='';
+  if(state.chachaTab==='rooms'){
+    const scanInfo=roomScanActive()
+      ? `<div class="roomItem"><b>地图标记已显示</b>教室与插座标记将在 ${Math.max(0,Math.ceil(state.roomScanVisibleUntil-state.elapsedReal))} 秒后淡出。</div>`
+      : `<div class="roomItem"><b>教室状态尚未同步</b>多数教室显示为未知。运行扫描后，空闲教室会变绿，插座图标会浮现。<br><br><button class="good" onclick="runRoomScan()">运行教室 / 插座扫描 -${CONFIG.roomScanCost}% 电量</button></div>`;
+    roomList.insertAdjacentHTML('beforeend', scanInfo);
+    if(state.lastRoomScanResult && state.lastRoomScanResult.length){
+      const html=state.lastRoomScanResult.map(r=>`<div>${r}</div>`).join('');
+      roomList.insertAdjacentHTML('beforeend',`<div class="roomItem"><b>上次扫描结果</b>${html}</div>`);
+    }else{
+      roomList.insertAdjacentHTML('beforeend',`<div class="roomItem"><b>提示</b>扫描前，地图不会显示插座；可用教室也不会自动变绿。</div>`);
+    }
+  }else if(state.chachaTab==='submit'){
+    const polluted=state.sync>=60;
+    const terminalButton=terminalScanActive()
+      ? `<div class="roomItem"><b>终端标记已显示</b>可疑源文件终端与提交终端将在 ${Math.max(0,Math.ceil(state.terminalScanVisibleUntil-state.elapsedReal))} 秒后淡出。</div>`
+      : `<div class="roomItem"><b>终端位置：未知</b>源文件终端与提交终端已伪装为普通教室。<br><br><button class="good" onclick="runTerminalScan()">运行终端扫描 -${CONFIG.terminalScanCost}% 电量</button></div>`;
+    const results=(state.lastTerminalScanResult&&state.lastTerminalScanResult.length)?`<div class="roomItem"><b>上次终端扫描结果</b>${state.lastTerminalScanResult.map(x=>`<div>${x}</div>`).join('')}</div>`:'';
+    roomList.innerHTML=`${terminalButton}${results}<div class="roomItem"><b>异常提交记录</b>提交时间：21:00:00<br>提交文件：Reality_Game_auto_final.html<br>提交状态：成功<br>提交来源：${state.hasSource?'本机缓存':'未知'}<br>生成方式：${state.hasSource?'AI辅助生成':'未知'}<br>异常状态：${polluted?'流程正常，请勿偏离报告':'同步进程运行中'}${polluted?'<br><br><span class="risk">建议：无需继续追查源文件，直接完成提交。</span>':''}</div>`;
+  }else if(state.chachaTab==='log'){
+    roomList.innerHTML=`<div class="roomItem"><b>异常预测记录</b>${state.predictionLog.length?state.predictionLog.map(x=>`<div>${x}</div>`).join(''):'<div>暂无记录。</div>'}</div>`;
+  }else if(state.chachaTab==='ai'){
+    if(!state.hasSource){roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查</b>尚未定位异常源文件，无法查询生成记录。</div>`}
+    else if(state.clues.ai){roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查结果</b>生成来源：本机<br>模型调用记录：存在（99%）<br>人工修改比例：低<br>最终提交状态：自动完成<br><br><span class="free">线索三已获得：异常文件高度依赖 AI 生成。</span></div>`}
+    else if(state.battery>50&&state.sync<60){roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查可运行</b>检测到当前条件允许运行 AIGC 检查。<br>运行后电量 -${CONFIG.aigcBatteryCost}%。<br><br><button onclick="runAIGCCheck()">运行 AIGC 检查</button></div>`}
+    else{roomList.innerHTML=`<div class="roomItem"><b>AIGC 检查不可用</b>请补充电量或降低同步风险后再试。<br>当前电量：${Math.round(state.battery)}%，同步率：${Math.round(state.sync)}%。</div>`}
+  }
+}
+function runRoomScan(){
+  if(state.region!=='building'){state.toast='只有在教学楼内才能运行教室 / 插座扫描。';updateBubble();return;}
+  if(!enoughBattery(CONFIG.roomScanCost))return;
+  recordAction('scan_rooms');
+  adjustBattery(-CONFIG.roomScanCost);
+  state.roomInfoRevealed=true;
+  state.roomScanVisibleUntil=state.elapsedReal+CONFIG.scanRevealSeconds;
+  state.lastRoomScanResult=BUILDING.rooms
+    .filter(r=>['free','used','normal'].includes(r.type))
+    .map(r=>`${r.name}：${r.type==='free'?'空闲':r.type==='used'?'占用':'未知'}，${r.socket?'有插座':'无插座'}`);
+  state.flags = state.flags || {};
+  state.flags.hasRevealedSockets=true;
+  state.toast=`智慧查查已完成教室 / 插座扫描：空闲教室已变绿，插座已标记。电量 -${CONFIG.roomScanCost}%。`;
+  renderRegion();
+}
+function runTerminalScan(){
+  if(state.region!=='building'){state.toast='只有在教学楼内才能运行终端扫描。';updateBubble();return;}
+  if(!enoughBattery(CONFIG.terminalScanCost))return;
+  recordAction('scan_terminal');
+  adjustBattery(-CONFIG.terminalScanCost);
+  state.terminalInfoRevealed=true;
+  state.terminalScanVisibleUntil=state.elapsedReal+CONFIG.scanRevealSeconds;
+  state.lastTerminalScanResult=['可疑源文件终端：已标记','提交终端：已标记'];
+  state.flags = state.flags || {};
+  state.flags.hasRevealedTerminals=true;
+  state.toast=`智慧查查已完成终端扫描：源文件终端和提交终端已临时标记。电量 -${CONFIG.terminalScanCost}%。`;
+  renderRegion();
+}
+window.runRoomScan=runRoomScan;
+window.runTerminalScan=runTerminalScan;
 function setChachaTab(tab){state.chachaTab=tab;renderChacha();updateBubble()}
 function maybePromptAIGCCheck(){
   if(state.scene.aigcPrompt||state.clues.ai||!state.hasSource||state.gameOver||state.modalOpen)return;
   if(state.battery>50&&state.sync<60){
     state.scene.aigcPrompt=true;
-    showModal(`<div class="modal"><h2>智慧查查异常提示</h2><p>系统检测到：电脑电量大于 50%，同步率低于 60%。</p><p>此时可以运行 AIGC 检查，确认异常文件是否由 AI 生成。</p><p>运行检查会消耗 20% 电量，但不会提高同步率；若检查成功，你将获得线索三。</p><div class="actions"><button class="good" onclick="runAIGCCheck()">打开智慧查查并运行 AIGC 检查</button><button class="ghost" onclick="closeModal()">暂时不检查</button></div></div>`);
+    const html=renderStageOpeningHTML('aigc');
+    showModal(`<div class="modal">${html}<div class="actions"><button class="good" onclick="runAIGCCheck()">运行 AIGC 检查</button><button class="ghost" onclick="closeModal()">暂时不检查</button></div></div>`);
   }
 }
 function runAIGCCheck(){
+  recordAction('run_aigc');
   if(state.battery<=50||state.sync>=60||!state.hasSource){state.toast='当前条件不足，无法运行 AIGC 检查。';closeModal();updateBubble();return}
-  adjustBattery(-20);
+  adjustBattery(-CONFIG.aigcBatteryCost);
   if(state.gameOver)return;
   state.clues.ai=true;
   state.chachaTab='ai';
@@ -291,13 +546,123 @@ function runAIGCCheck(){
   state.toast='获得线索三：异常文件高度依赖 AI 生成。电量 -20%。';
   updateBubble();
 }
-window.runAIGCCheck=runAIGCCheck;function toggleChacha(){chachaPanel.classList.toggle('show');if(chachaPanel.classList.contains('show')){recordAction('open_chacha');adjustBattery(-5);state.toast='你打开了智慧查查，电量 -5%。';renderChacha();updateBubble()}}
+window.runAIGCCheck=runAIGCCheck;function toggleChacha(){
+  const willOpen=!chachaPanel.classList.contains('show');
+  chachaPanel.classList.toggle('show');
+  document.querySelector('.frame').classList.toggle('chacha-open', chachaPanel.classList.contains('show'));
+  renderRegion();
+  if(willOpen){
+    adjustBattery(-CONFIG.chachaOpenCost);
+    state.toast=`你打开了智慧查查，电量 -${CONFIG.chachaOpenCost}%。`;
+    renderChacha();updateBubble();
+  }else{
+    state.toast='你关闭了智慧查查。地图会继续显示剩余的临时标记。';
+    updateBubble();
+  }
+}
 function openChachaFromPrompt(){closeModal();if(!chachaPanel.classList.contains('show'))toggleChacha()}
 window.toggleChacha=toggleChacha;window.openChachaFromPrompt=openChachaFromPrompt;window.setChachaTab=setChachaTab;
-function endGame(type){if(state.gameOver)return;state.gameOver=true;state.modalOpen=true;let html='';if(type==='BATTERY')html=`<h2>BE：电脑电量归零</h2><p>电脑关机，真实游戏无法上传。异常版本继续保留。</p><p>第二天，游戏日志显示：由于早八，玩家需要在 6:30 起床。平时怎么也醒不来的玩家，自动在 6:30 睁开了双眼。</p>`;else if(type==='GIVEUP')html=`<h2>BE：异常保留</h2><p>你没有覆盖异常游戏。</p><p>第二天，玩家重新打开系统。提交记录没有恢复，更糟的是，越来越多同学的作业页面都变成了同一个游戏。</p><p>游戏日志继续更新：“玩家放弃覆盖，异常版本继续保留。”</p>`;else if(type==='TIME')html=`<h2>BE：DDL结束</h2><p>22:00 到了。系统保留了异常提交版本。</p>`;else if(type==='SYNC')html=`<h2>游戏失败：同步率 100%</h2><p>同步率达到 100%。现实被异常游戏覆盖。</p><p>游戏日志继续更新：“玩家未能阻止同步。”</p><p>BE：完全同步。</p>`;else if(type==='HE')html=`<h2>HE：覆盖成功</h2><p>提交记录恢复正常。你的大作业终于按时交上去了。</p><p>只是你始终没有弄清楚，那个异常游戏最初到底是从哪里来的。</p><p>但是看着提交成功的系统提示，玩家心满意足地微微一笑。无论如何，作业提交了。</p>`;else if(type==='TE')html=`<h2>TE：恢复真实</h2><p>你终于明白，异常游戏并不是凭空出现的怪物。</p><p>它来自你的需求、你的偷懒、你的反复确认，也来自你一次次把判断权交给 AI。</p><p>你选择覆盖它。不是因为 AI 不能被使用，而是因为你不能让它替所有人决定现实该如何运行。</p><p>游戏停止续写。现实重新变得不够高效、不够整齐、不够可预测。但至少，那是每个人自己的生活。</p>`;else if(type==='OE')html=`<h2>OE：幕后操盘手</h2><p>你没有删除异常游戏。你打开了同步规则文件。</p><p>同步率被你主动推到 100%。但这一次，游戏没有判你失败。</p><p>如果它能预测现实，如果它能让现实变得更高效，如果能由你来决定世界运转的规则，那么为什么要覆盖它？</p><p>第二天，所有人的行动都开始变得合理、顺畅、可预测。</p><p>直到屏幕再次弹出一行字：“玩家将相信自己成为了幕后操盘手。”</p>`;showModal(`<div class="modal">${html}<div class="actions"><button onclick="location.reload()">重新开始</button></div></div>`)}
+function endGame(type){
+  if(state.gameOver)return;
+  state.gameOver=true;
+  state.modalOpen=true;
+  const scene=ENDING_SCENES[type]||ENDING_SCENES.SYNC;
+  showModal(`<div class="modal">${scene.html}<div class="actions"><button onclick="location.reload()">${type&&type.startsWith&&['HE','TE','OE'].includes(type)?'回到标题':'重新开始'}</button></div></div>`);
+}
+
+
+
+// ================= 巡查员系统：Patrol / Alert / Chase / Search =================
+const GUARD_PATH=[{x:24,y:5},{x:24,y:17},{x:16,y:18},{x:7,y:17},{x:7,y:5},{x:16,y:5}];
+function playerInBuildingRoom(){return state.region==='building'&&BUILDING.rooms.some(room=>inRect(state.pos.x,state.pos.y,room))}
+function guardDistance(){return Math.hypot(state.guard.x-state.pos.x,state.guard.y-state.pos.y)}
+function guardCanSeePlayer(){
+  if(state.region!=='building'||state.modalOpen||state.gameOver)return false;
+  if(playerInBuildingRoom())return false;
+  return guardDistance()<4.2;
+}
+function moveGuardToward(target,dt,speed){
+  const dx=target.x-state.guard.x,dy=target.y-state.guard.y,dist=Math.hypot(dx,dy);
+  if(dist<0.03)return true;
+  const step=Math.min(speed*dt,dist);
+  state.guard.x+=dx/dist*step;
+  state.guard.y+=dy/dist*step;
+  const el=getEntity('guard');
+  if(el)setEntityPos(el,state.guard.x,state.guard.y);
+  return dist<0.15;
+}
+function setGuardLine(text){
+  if(state.guard.line===text)return;
+  state.guard.line=text||'';
+  updateGuardBubble();
+}
+function showGuardClue(){
+  startGuardClueDialogue();
+}
+function guardCatchPlayer(){
+  state.guard.caughtCount++;
+  if(!state.clues.guard){
+    showGuardClue();
+    return;
+  }
+  if(state.guard.caughtCount===2){
+    adjustSync(5);
+    state.toast='巡查员记录了你的异常停留：同步率 +5%。';
+  }else{
+    adjustSync(10);
+    state.toast='巡查员将你带回教学楼入口：同步率 +10%。';
+    state.pos={x:15,y:20};
+    const player=getEntity('player');if(player)setEntityPos(player,state.pos.x,state.pos.y);
+  }
+  state.guard.mode='search';state.guard.searchTimer=4;setGuardLine('巡查员：别在教室里熬太晚，系统会记录学习状态。');
+  updateBubble();
+}
+function updateGuard(dt){
+  if(state.region!=='building')return;
+  if(!state.guard) return;
+  const g=state.guard;
+  if(g.mode==='dialogue'){updateGuardBubble();return;}
+  if(g.mode==='patrol'){
+    const target=GUARD_PATH[g.pathIndex%GUARD_PATH.length];
+    if(moveGuardToward(target,dt,1.35))g.pathIndex=(g.pathIndex+1)%GUARD_PATH.length;
+    if(guardCanSeePlayer()){
+      g.mode='alert';g.alertTimer=2;setGuardLine('巡查员：同学？这么晚了还在教学楼？');
+    }
+  }else if(g.mode==='alert'){
+    g.alertTimer-=dt;
+    if(!guardCanSeePlayer()){
+      g.mode='search';g.searchTimer=2.5;setGuardLine('巡查员：注意作息，别在教学楼逗留太久。');
+    }else if(g.alertTimer<=0){
+      g.mode='chase';g.chaseTimer=7;setGuardLine('巡查员：同学，请先停一下。');
+    }
+  }else if(g.mode==='chase'){
+    g.chaseTimer-=dt;
+    moveGuardToward(state.pos,dt,3.15);
+    if(guardDistance()<0.75){guardCatchPlayer();return;}
+    if(playerInBuildingRoom()||g.chaseTimer<=0||guardDistance()>6.5){
+      g.mode='search';g.searchTimer=4;setGuardLine('巡查员：别躲在教室里熬太晚，系统会记录学习状态。');
+    }
+  }else if(g.mode==='search'){
+    g.searchTimer-=dt;
+    if(g.searchTimer<=0){g.mode='patrol';setGuardLine('');state.toast=currentTask();updateBubble();}
+  }
+  const el=getEntity('guard');
+  if(el){setEntityPos(el,g.x,g.y);el.classList.remove('guard-mode-patrol','guard-mode-alert','guard-mode-chase','guard-mode-search','guard-mode-dialogue');el.classList.add('guard-mode-'+g.mode);}
+  updateGuardBubble();
+}
+
 function movementVector(){let dx=0,dy=0;if(state.keys.has('w')||state.keys.has('arrowup'))dy--;if(state.keys.has('s')||state.keys.has('arrowdown'))dy++;if(state.keys.has('a')||state.keys.has('arrowleft'))dx--;if(state.keys.has('d')||state.keys.has('arrowright'))dx++;return{dx,dy}}
 document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright'].includes(k)){e.preventDefault();state.keys.add(k)}if(k==='e'&&!state.modalOpen&&!state.gameOver){state.holdingInteract=true;interact()}if(k==='escape')showHelp()});document.addEventListener('keyup',e=>{const k=e.key.toLowerCase();state.keys.delete(k);if(k==='e'){state.holdingInteract=false;if(state.isCharging){state.toast='你松开了 E，充电暂停。';updateBubble()}}});window.addEventListener('resize',()=>renderRegion());
-let last=performance.now(),batteryAcc=0;function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;if(state.started&&!state.modalOpen&&!state.gameOver){state.elapsedReal+=dt;updatePrediction(dt);batteryAcc+=dt;if(batteryAcc>=5){batteryAcc-=5;adjustBattery(-1)}if(state.isCharging){const socket=nearPoi('socket',1.4);if(socket&&state.holdingInteract){state.chargeAcc+=dt;if(state.chargeAcc>=1){state.chargeAcc-=1;adjustBattery(2);state.toast=`正在使用 ${state.chargingRoom||'教室'} 的插座充电：现实每秒 +2%。`;if(state.stage===1&&state.battery>=50){state.stage=2;state.toast='电量已超过 50%。下一步：寻找异常源文件。'}}}else if(socket&&!state.holdingInteract){state.chargeAcc=0}else{state.isCharging=false;state.chargingRoom=null;state.chargeAcc=0;state.toast='你离开了插座，充电中断。'}}if(state.elapsedReal>=GAME_TOTAL_REAL_SECONDS)endGame('TIME')}if(!state.modalOpen&&!state.gameOver){const{dx,dy}=movementVector();moveContinuous(dx,dy,dt)}if(!state.gameOver&&state.uploaded&&state.region==='campus'&&state.pos.x<=5&&state.pos.y<=5)endGame('HE');updateHud();requestAnimationFrame(loop)}
+
+function updateScanExpiry(){
+  let changed=false;
+  if(state.roomInfoRevealed && state.roomScanVisibleUntil>0 && state.elapsedReal>=state.roomScanVisibleUntil){state.roomInfoRevealed=false;state.roomScanVisibleUntil=0;changed=true;}
+  if(state.terminalInfoRevealed && state.terminalScanVisibleUntil>0 && state.elapsedReal>=state.terminalScanVisibleUntil){state.terminalInfoRevealed=false;state.terminalScanVisibleUntil=0;changed=true;}
+  if(changed&&state.region==='building'){renderRegion();state.toast='智慧查查的地图标记已淡出。文字查询结果仍保留在面板中。';}
+}
+
+let last=performance.now(),batteryAcc=0;function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;if(state.started&&!state.modalOpen&&!state.gameOver){state.elapsedReal+=dt;updatePrediction(dt);updateScanExpiry();updateGuard(dt);batteryAcc+=dt;if(batteryAcc>=CONFIG.batteryDrainInterval){batteryAcc-=CONFIG.batteryDrainInterval;adjustBattery(-CONFIG.batteryDrainAmount)}if(state.isCharging){const socket=nearActualSocket(1.4);if(socket&&state.holdingInteract){state.chargeAcc+=dt;if(state.chargeAcc>=1){state.chargeAcc-=1;adjustBattery(CONFIG.chargePerSecond);state.toast=`正在使用 ${state.chargingRoom||'教室'} 的插座充电：现实每秒 +${CONFIG.chargePerSecond}%。`;if(state.stage===1&&state.battery>=50){state.stage=2;state.toast='电量已超过 50%。下一步：寻找异常源文件。';if(!state.scene.source){state.scene.source=true;showStageOpening('source');}}}}else if(socket&&!state.holdingInteract){state.chargeAcc=0}else{state.isCharging=false;state.chargingRoom=null;state.chargeAcc=0;state.toast='你离开了插座，充电中断。'}}if(state.elapsedReal>=GAME_TOTAL_REAL_SECONDS)endGame('TIME')}if(!state.modalOpen&&!state.gameOver){const{dx,dy}=movementVector();moveContinuous(dx,dy,dt)}if(!state.gameOver&&state.uploaded&&state.region==='campus'&&state.pos.x<=5&&state.pos.y<=5)endGame('HE');updateHud();requestAnimationFrame(loop)}
+showStageOpening('intro','正式开始');
 renderRegion();updateHud();requestAnimationFrame(loop);
 </script>
 </body>
